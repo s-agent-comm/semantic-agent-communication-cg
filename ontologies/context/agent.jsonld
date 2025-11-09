@@ -1,21 +1,21 @@
 {
   "@context": {
-    "@vocab": "http://example.org/agent-ontology/core#",
+    "@vocab": "https://ns.slashlife.ai/agent/core#",
 
     /* ==== Core Identifiers ==== */
 
     "id": "@id",
     "type": "@type",
 
-    "Agent": "http://example.org/agent-ontology/core#Agent",
-    "AgentEntity": "http://example.org/agent-ontology/core#AgentEntity",
-    "Capability": "http://example.org/agent-ontology/core#Capability",
-    "Intent": "http://example.org/agent-ontology/core#Intent",
-    "Delegation": "http://example.org/agent-ontology/core#Delegation",
-    "Action": "http://example.org/agent-ontology/core#Action",
-    "ExecutionContext": "http://example.org/agent-ontology/core#ExecutionContext",
-    "TraceEvent": "http://example.org/agent-ontology/core#TraceEvent",
-    "Artifact": "http://example.org/agent-ontology/core#Artifact",
+    "Agent": "https://ns.slashlife.ai/agent/core#Agent",
+    "AgentEntity": "https://ns.slashlife.ai/agent/core#AgentEntity",
+    "Capability": "https://ns.slashlife.ai/agent/core#Capability",
+    "Intent": "https://ns.slashlife.ai/agent/core#Intent",
+    "Delegation": "https://ns.slashlife.ai/agent/core#Delegation",
+    "Action": "https://ns.slashlife.ai/agent/core#Action",
+    "ExecutionContext": "https://ns.slashlife.ai/agent/core#ExecutionContext",
+    "TraceEvent": "https://ns.slashlife.ai/agent/core#TraceEvent",
+    "Artifact": "https://ns.slashlife.ai/agent/core#Artifact",
 
 
     /* ==== DID & Identity vocab (W3C-aligned) ==== */
@@ -36,41 +36,41 @@
 
     /* ==== Homomorphix OS Agent Model ==== */
 
-    "core_identity": "http://example.org/agent-ontology/agent#coreIdentity",
-    "purpose_and_role": "http://example.org/agent-ontology/agent#purposeAndRole",
-    "capabilities": "http://example.org/agent-ontology/agent#capabilities",
-    "operational_triggers_and_io": "http://example.org/agent-ontology/agent#operationalTriggersAndIO",
-    "system_integration_and_dependencies": "http://example.org/agent-ontology/agent#systemIntegrationAndDependencies",
-    "economic_interfaces": "http://example.org/agent-ontology/agent#economicInterfaces",
-    "identity_interfaces": "http://example.org/agent-ontology/agent#identityInterfaces",
-    "lifecycle_management": "http://example.org/agent-ontology/agent#lifecycleManagement",
-    "contractual_interfaces": "http://example.org/agent-ontology/agent#contractualInterfaces",
+    "core_identity": "https://ns.slashlife.ai/agent/agent#coreIdentity",
+    "purpose_and_role": "https://ns.slashlife.ai/agent/agent#purposeAndRole",
+    "capabilities": "https://ns.slashlife.ai/agent/agent#capabilities",
+    "operational_triggers_and_io": "https://ns.slashlife.ai/agent/agent#operationalTriggersAndIO",
+    "system_integration_and_dependencies": "https://ns.slashlife.ai/agent/agent#systemIntegrationAndDependencies",
+    "economic_interfaces": "https://ns.slashlife.ai/agent/agent#economicInterfaces",
+    "identity_interfaces": "https://ns.slashlife.ai/agent/agent#identityInterfaces",
+    "lifecycle_management": "https://ns.slashlife.ai/agent/agent#lifecycleManagement",
+    "contractual_interfaces": "https://ns.slashlife.ai/agent/agent#contractualInterfaces",
 
 
     /* ==== Core Object Properties (from core.ttl) ==== */
 
     "hasIntent": {
-      "@id": "http://example.org/agent-ontology/core#hasIntent",
+      "@id": "https://ns.slashlife.ai/agent/core#hasIntent",
       "@type": "@id"
     },
     "hasCapability": {
-      "@id": "http://example.org/agent-ontology/core#hasCapability",
+      "@id": "https://ns.slashlife.ai/agent/core#hasCapability",
       "@type": "@id"
     },
     "executesAction": {
-      "@id": "http://example.org/agent-ontology/core#executesAction",
+      "@id": "https://ns.slashlife.ai/agent/core#executesAction",
       "@type": "@id"
     },
     "producesArtifact": {
-      "@id": "http://example.org/agent-ontology/core#producesArtifact",
+      "@id": "https://ns.slashlife.ai/agent/core#producesArtifact",
       "@type": "@id"
     },
     "recordedIn": {
-      "@id": "http://example.org/agent-ontology/core#recordedIn",
+      "@id": "https://ns.slashlife.ai/agent/core#recordedIn",
       "@type": "@id"
     },
     "contextOf": {
-      "@id": "http://example.org/agent-ontology/core#contextOf",
+      "@id": "https://ns.slashlife.ai/agent/core#contextOf",
       "@type": "@id"
     },
 
@@ -78,15 +78,15 @@
     /* ==== Delegation schema alignment ==== */
 
     "delegatedBy": {
-      "@id": "http://example.org/agent-ontology/delegation#delegatedBy",
+      "@id": "https://ns.slashlife.ai/agent/delegation#delegatedBy",
       "@type": "@id"
     },
     "delegatesTo": {
-      "@id": "http://example.org/agent-ontology/delegation#delegatesTo",
+      "@id": "https://ns.slashlife.ai/agent/delegation#delegatesTo",
       "@type": "@id"
     },
     "delegationScope": {
-      "@id": "http://example.org/agent-ontology/delegation#delegationScope",
+      "@id": "https://ns.slashlife.ai/agent/delegation#delegationScope",
       "@type": "@id"
     },
 
@@ -94,54 +94,54 @@
     /* ==== Capability expansions ==== */
 
     "function": {
-      "@id": "http://example.org/agent-ontology/capability#function",
+      "@id": "https://ns.slashlife.ai/agent/capability#function",
       "@type": "xsd:string"
     },
     "skill": {
-      "@id": "http://example.org/agent-ontology/capability#skill",
+      "@id": "https://ns.slashlife.ai/agent/capability#skill",
       "@type": "xsd:string"
     },
 
 
     /* ==== Lifecycle / Genesis / Trust Anchors ==== */
 
-    "genesis_record": "http://example.org/agent-ontology/lifecycle#genesisRecord",
-    "state": "http://example.org/agent-ontology/lifecycle#state",
-    "health_check": "http://example.org/agent-ontology/lifecycle#healthCheck",
-    "decommission_record": "http://example.org/agent-ontology/lifecycle#decommissionRecord",
+    "genesis_record": "https://ns.slashlife.ai/agent/lifecycle#genesisRecord",
+    "state": "https://ns.slashlife.ai/agent/lifecycle#state",
+    "health_check": "https://ns.slashlife.ai/agent/lifecycle#healthCheck",
+    "decommission_record": "https://ns.slashlife.ai/agent/lifecycle#decommissionRecord",
 
     "timestamp": {
-      "@id": "http://example.org/agent-ontology/core#timestamp",
+      "@id": "https://ns.slashlife.ai/agent/core#timestamp",
       "@type": "xsd:dateTime"
     },
     "ledger_event_id": {
-      "@id": "http://example.org/agent-ontology/lifecycle#ledgerEventId",
+      "@id": "https://ns.slashlife.ai/agent/lifecycle#ledgerEventId",
       "@type": "xsd:string"
     },
 
 
     /* ==== Economic Interface (wallet) ==== */
 
-    "wallets": "http://example.org/agent-ontology/economic#wallets",
-    "address": "http://example.org/agent-ontology/economic#walletAddress",
-    "currencies": "http://example.org/agent-ontology/economic#supportedCurrencies",
-    "economicCapabilities": "http://example.org/agent-ontology/economic#capabilities",
+    "wallets": "https://ns.slashlife.ai/agent/economic#wallets",
+    "address": "https://ns.slashlife.ai/agent/economic#walletAddress",
+    "currencies": "https://ns.slashlife.ai/agent/economic#supportedCurrencies",
+    "economicCapabilities": "https://ns.slashlife.ai/agent/economic#capabilities",
 
 
     /* ==== Contractual Interfaces ==== */
 
-    "contracts": "http://example.org/agent-ontology/contract#contracts",
+    "contracts": "https://ns.slashlife.ai/agent/contract#contracts",
     "terms_uri": {
-      "@id": "http://example.org/agent-ontology/contract#termsUri",
+      "@id": "https://ns.slashlife.ai/agent/contract#termsUri",
       "@type": "@id"
     },
-    "compensation_terms": "http://example.org/agent-ontology/contract#compensationTerms",
-    "parties": "http://example.org/agent-ontology/contract#parties",
-    "scope": "http://example.org/agent-ontology/contract#scope",
+    "compensation_terms": "https://ns.slashlife.ai/agent/contract#compensationTerms",
+    "parties": "https://ns.slashlife.ai/agent/contract#parties",
+    "scope": "https://ns.slashlife.ai/agent/contract#scope",
 
 
     /* ==== Utility ==== */
 
-    "description": "http://example.org/agent-ontology/core#description"
+    "description": "https://ns.slashlife.ai/agent/core#description"
   }
 }

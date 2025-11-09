@@ -1,9 +1,9 @@
-@prefix acc: <http://example.org/agent-ontology/accountability#> .
-@prefix agent: <http://example.org/agent-ontology/agent#> .
-@prefix cap: <http://example.org/agent-ontology/capability#> .
-@prefix del: <http://example.org/agent-ontology/delegation#> .
-@prefix core: <http://example.org/agent-ontology/core#> .
-@prefix ledger: <http://example.org/agent-ontology/ledger#> .
+@prefix acc: <https://ns.slashlife.ai/agent/accountability#> .
+@prefix agent: <https://ns.slashlife.ai/agent/agent#> .
+@prefix cap: <https://ns.slashlife.ai/agent/capability#> .
+@prefix del: <https://ns.slashlife.ai/agent/delegation#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix ledger: <https://ns.slashlife.ai/agent/ledger#> .
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .

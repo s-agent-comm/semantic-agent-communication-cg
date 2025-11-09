@@ -1,10 +1,10 @@
-@prefix : <http://example.org/agent-ontology/agent#> .
-@prefix core: <http://example.org/agent-ontology/core#> .
-@prefix del: <http://example.org/agent-ontology/delegation#> .
-@prefix cap: <http://example.org/agent-ontology/capability#> .
-@prefix econ: <http://example.org/agent-ontology/economic#> .
-@prefix contract: <http://example.org/agent-ontology/contract#> .
-@prefix life: <http://example.org/agent-ontology/lifecycle#> .
+@prefix : <https://ns.slashlife.ai/agent/agent#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix del: <https://ns.slashlife.ai/agent/delegation#> .
+@prefix cap: <https://ns.slashlife.ai/agent/capability#> .
+@prefix econ: <https://ns.slashlife.ai/agent/economic#> .
+@prefix contract: <https://ns.slashlife.ai/agent/contract#> .
+@prefix life: <https://ns.slashlife.ai/agent/lifecycle#> .
 @prefix did: <https://www.w3.org/ns/did#> .
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .

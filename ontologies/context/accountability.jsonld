@@ -1,10 +1,10 @@
 {
   "@context": {
-    "@vocab": "http://example.org/agent-ontology/accountability#",
-    "core": "http://example.org/agent-ontology/core#",
-    "agent": "http://example.org/agent-ontology/agent#",
-    "del": "http://example.org/agent-ontology/delegation#",
-    "ledger": "http://example.org/agent-ontology/ledger#",
+    "@vocab": "https://ns.slashlife.ai/agent/accountability#",
+    "core": "https://ns.slashlife.ai/agent/core#",
+    "agent": "https://ns.slashlife.ai/agent/agent#",
+    "del": "https://ns.slashlife.ai/agent/delegation#",
+    "ledger": "https://ns.slashlife.ai/agent/ledger#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
 
