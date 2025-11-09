@@ -1,0 +1,32 @@
+{
+  "@context": "https://ns.slashlife.ai/agent/context/capability.jsonld",
+  "id": "cap:generateReport",
+  "type": "cap:PrimitiveCapability",
+  "label": "Generate Report",
+  "description": "Generates a summary report from a given dataset.",
+  "inputs": [
+    {
+      "name": "dataset_id",
+      "datatype": "xsd:string",
+      "description": "The identifier for the input dataset.",
+      "required": true
+    },
+    {
+      "name": "output_format",
+      "datatype": "xsd:string",
+      "description": "The desired format for the report (e.g., 'pdf', 'csv').",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "report_artifact_id",
+      "datatype": "xsd:string",
+      "description": "The identifier for the generated report artifact."
+    }
+  ],
+  "governance": {
+    "requiresDelegation": true,
+    "auditLevel": "strict"
+  }
+}

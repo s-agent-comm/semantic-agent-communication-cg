@@ -1,0 +1,26 @@
+{
+  "@context": "https://ns.slashlife.ai/agent/context/delegation.jsonld",
+  "id": "urn:uuid:delegation-12345",
+  "type": "core:Delegation",
+  "delegationId": "delegation-human-to-agent-2025",
+  "grantor": "did:human:alice",
+  "grantee": "did:key:z6MkrC6s3s5g1g2h3j4k5l6m7n8o9p0q1r2s3t4u5v6w7x8y9z",
+  "scope": {
+    "intent": "Generate the quarterly financial report for Q4 2025.",
+    "capabilities": [
+      "cap:generateReport"
+    ],
+    "constraints": {
+      "timeBounds": {
+        "notAfter": "2026-01-31T23:59:59Z"
+      },
+      "contextualRequirements": [
+        "must_run_in_TEE"
+      ]
+    }
+  },
+  "verification": {
+    "signature": "...",
+    "proofType": "Ed25519Signature2020"
+  }
+}

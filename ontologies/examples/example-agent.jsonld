@@ -1,0 +1,28 @@
+{
+  "@context": "https://ns.slashlife.ai/agent/context/agent.jsonld",
+  "id": "did:key:z6MkrC6s3s5g1g2h3j4k5l6m7n8o9p0q1r2s3t4u5v6w7x8y9z",
+  "type": "core:Agent",
+  "coreIdentity": {
+    "did": "did:key:z6MkrC6s3s5g1g2h3j4k5l6m7n8o9p0q1r2s3t4u5v6w7x8y9z",
+    "version": "2.1.0",
+    "title": "Generic Service Agent"
+  },
+  "purposeAndRole": {
+    "objective": "To perform automated data processing tasks based on delegated authority.",
+    "owner": "did:org:12345"
+  },
+  "capabilities": {
+    "skills": [
+      "cap:fetchData",
+      "cap:processData",
+      "cap:generateReport"
+    ]
+  },
+  "lifecycleManagement": {
+    "state": "active",
+    "genesisRecord": {
+      "timestamp": "2024-01-01T00:00:00Z",
+      "ledger_event_id": "urn:uuid:genesis-event-for-agent"
+    }
+  }
+}

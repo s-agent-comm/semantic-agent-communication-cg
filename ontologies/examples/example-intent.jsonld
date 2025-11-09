@@ -1,0 +1,26 @@
+{
+  "@context": "https://ns.slashlife.ai/agent/context/intent.jsonld",
+  "id": "urn:uuid:intent-67890",
+  "type": "intent:Intent",
+  "hasIntentType": {
+    "id": "intent-type:GenerateReport",
+    "type": "intent:IntentType"
+  },
+  "hasParameter": [
+    {
+      "id": "param-1",
+      "type": "intent:IntentParameter",
+      "paramName": "dataset_id",
+      "paramType": "xsd:string",
+      "paramValue": "financial-data-q4-2025"
+    },
+    {
+      "id": "param-2",
+      "type": "intent:IntentParameter",
+      "paramName": "output_format",
+      "paramType": "xsd:string",
+      "paramValue": "pdf"
+    }
+  ],
+  "authorizedBy": "urn:uuid:delegation-12345"
+}
