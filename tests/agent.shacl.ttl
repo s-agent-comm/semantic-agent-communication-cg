@@ -1,0 +1,75 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Import ontology prefixes
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix agent: <https://ns.slashlife.ai/agent/agent#> .
+
+#
+# This SHACL file defines constraints for the Agent Ontology.
+# It can be used with a SHACL validation engine (e.g., pyshacl, TopBraid)
+# to validate instance data, such as the examples in the /examples directory.
+#
+
+# -- Shape for core:Agent --
+core:AgentShape
+    a sh:NodeShape ;
+    sh:targetClass core:Agent ;
+    sh:description "Defines the constraints for an instance of core:Agent." ;
+
+    # An Agent MUST have exactly one coreIdentity.
+    sh:property [
+        sh:path agent:coreIdentity ;
+        sh:name "Core Identity" ;
+        sh:description "An agent must have exactly one core identity." ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node agent:AgentIdentityShape ; # Validate the identity against its own shape
+    ] ;
+
+    # An Agent MAY have a purposeAndRole.
+    sh:property [
+        sh:path agent:purposeAndRole ;
+        sh:name "Purpose and Role" ;
+        sh:maxCount 1 ;
+        sh:node agent:PurposeRoleShape ;
+    ] .
+
+# -- Shape for agent:AgentIdentity --
+agent:AgentIdentityShape
+    a sh:NodeShape ;
+    sh:targetClass agent:AgentIdentity ;
+    sh:description "Defines the constraints for an AgentIdentity." ;
+
+    # An AgentIdentity MUST have exactly one DID.
+    sh:property [
+        sh:path agent:did ;
+        sh:name "Decentralized Identifier" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^did:.+$" ; # Must conform to the basic DID syntax
+    ] ;
+
+    # An AgentIdentity MAY have a version.
+    sh:property [
+        sh:path agent:version ;
+        sh:name "Version" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] .
+
+# -- Shape for agent:PurposeRole --
+agent:PurposeRoleShape
+    a sh:NodeShape ;
+    sh:targetClass agent:PurposeRole ;
+
+    # A PurposeRole SHOULD have an objective.
+    sh:property [
+        sh:path agent:objective ;
+        sh:name "Objective" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] .
