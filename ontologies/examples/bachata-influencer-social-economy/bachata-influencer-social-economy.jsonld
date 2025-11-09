@@ -11,18 +11,18 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/bachata-influencer-social-economy#BachataDancerAgent",
       "@type": "core:Agent",
-      "rdfs:label": "Sofia's Personal Bachata Agent",
+      "rdfs:label": "Luna's Personal Bachata Agent",
       "agent:hasProfile": {
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
           "agent:did": "did:example:sofia-dancer-agent",
-          "agent:title": "Sofia's Personal Bachata Agent",
+          "agent:title": "Luna's Personal Bachata Agent",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
           "@type": "agent:PurposeRole",
-          "agent:objective": "To manage Sofia's dance life, grow her personal brand, and handle social and economic opportunities.",
+          "agent:objective": "To manage Luna's dance life, grow her personal brand, and handle social and economic opportunities.",
           "agent:owner": "did:example:sofia-dancer"
         },
         "agent:capabilities": {
@@ -171,7 +171,7 @@
       "@id": "https://ns.slashlife.ai/agent/examples/bachata-influencer-social-economy#RegistrationConfirmation",
       "@type": "core:Artifact",
       "rdfs:label": "Registration Confirmation for Latin Gala",
-      "core:description": "Sofia is confirmed for the Latin Gala. Ticket QR Code: [data]"
+      "core:description": "Luna is confirmed for the Latin Gala. Ticket QR Code: [data]"
     },
     {
       "@id": "https://ns.slashlife.ai/agent/examples/bachata-influencer-social-economy#PostHighlightReelIntent",
@@ -200,8 +200,8 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/bachata-influencer-social-economy#BrandCollaborationIntent",
       "@type": "core:Intent",
-      "rdfs:label": "Brand Collaboration with @Sofia",
-      "intent:objective": "Collaborate with dancer @Sofia for a product promotion."
+      "rdfs:label": "Brand Collaboration with @Luna",
+      "intent:objective": "Collaborate with dancer @Luna for a product promotion."
     },
     {
       "@id": "https://ns.slashlife.ai/agent/examples/bachata-influencer-social-economy#BrandSponsorshipDeal",
@@ -218,7 +218,7 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/bachata-influencer-social-economy#SponsorshipContract",
       "@type": "contract:Contract",
-      "rdfs:label": "Sponsorship Contract between Elegancia and Sofia",
+      "rdfs:label": "Sponsorship Contract between Elegancia and Luna",
       "contract:termsUri": "https://elegancia-shoes.com/sponsorship-terms-sofia"
     },
     {
