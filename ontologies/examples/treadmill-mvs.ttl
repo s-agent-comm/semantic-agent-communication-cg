@@ -1,0 +1,90 @@
+@prefix sac: <https://slashlife.ai/ontology/sac#> .
+@prefix agent: <https://slashlife.ai/ontology/agent#> .
+@prefix ledger: <https://slashlife.ai/ontology/ledger#> .
+@prefix deleg: <https://slashlife.ai/ontology/delegation#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# 1. Agent Definition — Treadmill MVS Runner
+#################################################################
+
+:runnerAgent a agent:Agent ;
+    agent:agentId "agent:treadmill-runner-001" ;
+    agent:version "1.0.0" ;
+    agent:title "Treadmill MVS Runtime Agent" ;
+
+    agent:hasCapability :cap.executeWorkout , :cap.monitorSafety ;
+    agent:hasSkill "real-time-interpretation" , "device-control" ;
+    agent:hasPersona "calm-operational" ;
+    agent:supportsLanguage "zh-TW" ;
+    agent:supportsTone "Level-4-operational" ;
+
+    agent:triggeredBy :trigger.startWorkout ;
+    agent:acceptsInput :input.userProfile , :input.workoutSpec ;
+    agent:producesOutput :output.sessionLog , :output.ledgerEvent .
+
+#################################################################
+# 2. Capabilities
+#################################################################
+
+:cap.executeWorkout a agent:Capability ;
+    agent:capabilityId "exec.workout" ;
+    agent:description "Execute a structured treadmill session based on semantic workout specification." .
+
+:cap.monitorSafety a agent:Capability ;
+    agent:capabilityId "monitor.safety" ;
+    agent:description "Monitor heart rate, stride pattern, and device state; trigger safety stop." .
+
+#################################################################
+# 3. Triggers and I/O
+#################################################################
+
+:trigger.startWorkout a agent:Trigger ;
+    agent:triggerType "user_intent" ;
+    agent:source "voice_command" .
+
+:input.userProfile a agent:Input ;
+    agent:name "userProfile" ;
+    agent:dataType "application/json" ;
+    agent:description "Age, resting HR, fitness level." .
+
+:input.workoutSpec a agent:Input ;
+    agent:name "workoutSpec" ;
+    agent:dataType "application/json" ;
+    agent:description "Semantic workout program generated via MVS." .
+
+:output.sessionLog a agent:Output ;
+    agent:name "sessionLog" ;
+    agent:dataType "application/json" .
+
+:output.ledgerEvent a agent:Output ;
+    agent:name "ledgerEvent" ;
+    agent:dataType "json-ld" ;
+    agent:description "Verifiable execution event stored in the semantic ledger." .
+
+#################################################################
+# 4. Delegation Chain — MVS compiler → runner
+#################################################################
+
+:delegSession a deleg:Delegation ;
+    deleg:delegationId "deleg:workout-session-001" ;
+    deleg:delegator "agent:mvs-compiler" ;
+    deleg:delegatee "agent:treadmill-runner-001" ;
+    deleg:scope "execute_workout" ;
+    deleg:issuedAt "2025-11-09T01:20:00Z"^^xsd:dateTime ;
+    deleg:validUntil "2025-11-09T02:00:00Z"^^xsd:dateTime ;
+    deleg:justification "MVS compiler generated a valid semantic workout specification." .
+
+#################################################################
+# 5. Ledger Event — verifiable execution
+#################################################################
+
+:ledgerEvt001 a ledger:LedgerEvent ;
+    ledger:eventId "ledg:treadmill-session-evt-001" ;
+    ledger:agent "agent:treadmill-runner-001" ;
+    ledger:action "executeWorkout" ;
+    ledger:artifact "spec://workout/semantic/interval-001" ;
+    ledger:timestamp "2025-11-09T01:22:41Z"^^xsd:dateTime ;
+    ledger:result "completed" ;
+    ledger:signature "z6Mkh...X2" ;
+    ledger:boundDelegation :delegSession .
