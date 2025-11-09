@@ -72,7 +72,9 @@ The CG aims to develop:
 
 ---
 
-## 5. Quick Start
+## 5. Getting Started
+
+### 5.1 Quick Start
 
 This example shows how to validate an agent definition against its schema and expand its semantic meaning using Python.
 
@@ -113,24 +115,26 @@ print(json.dumps(expanded, indent=2))
 
 ---
 
-## 6. How to Contribute
+## 6. Participation and Contribution
 
-This is a community-driven project, and we welcome contributions of all kinds. Please see our **[Contribution Guidelines](CONTRIBUTING.md)** to learn how you can get involved, from proposing changes to submitting code.
+This is an open, community-driven project. We welcome contributions of all kinds, from participating in discussions to submitting code and documentation.
+
+### 6.1 Join the Community Group
+
+The Community Group is open to all. To join and participate in formal discussions:
+
+- **Join here (activation pending 5 supporters):**  
+  https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/
+
+### 6.2 How to Contribute
+
+For technical contributions to this repository, please see our **[Contribution Guidelines](CONTRIBUTING.md)**.
 
 The best way to start is by opening a [GitHub Issue](https://github.com/slashlifeai/agent-ontology/issues) to discuss your ideas.
 
 ---
 
-## 7. Participation
-
-The Community Group is open to all.
-
-Join here (activation pending 5 supporters):  
-https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/
-
----
-
-## 8. License
+## 7. License
 
 Ontology files and specifications will follow open licenses (e.g., W3C Software and Document License) to enable broad adoption.
 

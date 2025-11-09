@@ -1,0 +1,15 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://ns.slashlife.ai/agent/ontology>
+    a owl:Ontology ;
+    rdfs:label "AI Agent Ontology (Main)" ;
+    rdfs:comment "The main entry point for the complete AI Agent Ontology, importing all constituent modules." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/core> ;
+    owl:imports <https://ns.slashlife.ai/agent/agent> ;
+    owl:imports <https://ns.slashlife.ai/agent/capability> ;
+    owl:imports <https://ns.slashlife.ai/agent/delegation> ;
+    owl:imports <https://ns.slashlife.ai/agent/accountability> ;
+    owl:imports <https://ns.slashlife.ai/agent/ledger> ;
+    owl:imports <https://ns.slashlife.ai/agent/identity> .
