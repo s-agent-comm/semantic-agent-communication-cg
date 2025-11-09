@@ -7,7 +7,15 @@ The **Semantic Agent Communication Community Group (SAC-CG)** aims to define a s
 This includes foundational ontology layers for **identity binding**, **capability description**, **delegation structures**, **intent semantics**, and **verifiable execution records** supporting secure and auditable agent-to-agent interaction.
 
 The ontology developed here is abstracted from operational cross-border systems to ensure practical applicability and technical feasibility.  
-The long-term objective is alignment with frameworks such as the **EU AI Act**, **EUDI Wallet**, **EU Business Wallet**, **Data Act**, and future **ISO/IEC** tracks for AI interoperability.
+...and future **ISO/IEC** tracks for AI interoperability.
+
+### 1.1 Foundational Concepts
+The work is built upon several foundational concepts:
+
+*   **Agent-Native Computation Model:** A model where autonomous agents are first-class citizens of the operating system, not merely applications running on top of it.
+*   **Semantic-Operational Ontology:** An ontology that doesn't just describe concepts, but directly maps them to executable operations, bridging the gap between meaning and action.
+*   **Ledger-Based Accountability:** The use of an immutable ledger to create a verifiable, append-only log of all agent actions for robust auditing and accountability.
+*   **TEE/DID/Audit Chain Binding:** A cryptographic trust foundation that binds an agent's identity (DID) and its actions to secure hardware (Trusted Execution Environments or TEEs) and a verifiable audit chain.
 
 ---
 
