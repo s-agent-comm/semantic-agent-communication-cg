@@ -1,0 +1,124 @@
+@prefix : <https://ns.slashlife.ai/agent/examples/secure-execution-attestation#> .
+@prefix agent: <https://ns.slashlife.ai/agent/agent#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix intent: <https://ns.slashlife.ai/agent/intent#> .
+@prefix delegation: <https://ns.slashlife.ai/agent/delegation#> .
+@prefix capability: <https://ns.slashlife.ai/agent/capability#> .
+@prefix security: <https://ns.slashlife.ai/agent/security-binding#> .
+@prefix execution-context: <https://ns.slashlife.ai/agent/execution-context#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --- DIDs (as instances for clarity) ---
+
+:ManufacturerDID a core:AgentEntity ;
+    rdfs:label "Vehicle Manufacturer DID" ;
+    core:did "did:web:manufacturer.com" .
+
+:OTAServiceDID a core:AgentEntity ;
+    rdfs:label "OTA Update Service DID" ;
+    core:did "did:web:ota.manufacturer.com" .
+
+:VehicleDID a core:AgentEntity ;
+    rdfs:label "Vehicle #AV-789 DID" ;
+    core:did "did:key:z6Mkr...AV789" .
+
+:HardwareRootOfTrustDID a core:AgentEntity ;
+    rdfs:label "Hardware Root of Trust (TPM) DID for #AV-789" ;
+    core:did "did:key:z6Mkp...TPM456" .
+
+# --- Agents ---
+
+:OTA_Update_Management_Agent a core:Agent ;
+    rdfs:label "OTA Update Management Agent" ;
+    agent:hasProfile [
+        a agent:AgentProfile ;
+        agent:coreIdentity [
+            a agent:AgentIdentity ;
+            agent:did "did:web:ota.manufacturer.com" ;
+            agent:title "OTA Update Management Agent" ;
+            agent:version "3.0.0"
+        ] ;
+        agent:purposeAndRole [
+            a agent:PurposeRole ;
+            agent:objective "To manage and securely deploy software updates to the vehicle fleet." ;
+            agent:owner :ManufacturerDID
+        ] ;
+        agent:capabilities [
+            a agent:CapabilityBundle ;
+            agent:skill "Software Update Deployment", "Remote Attestation Verification"
+        ]
+    ] .
+
+:Vehicle_Attestation_Agent a core:Agent ;
+    rdfs:label "Vehicle #AV-789 Attestation Agent" ;
+    agent:hasProfile [
+        a agent:AgentProfile ;
+        agent:coreIdentity [
+            a agent:AgentIdentity ;
+            agent:did "did:key:z6Mkr...AV789" ;
+            agent:title "Vehicle #AV-789 Attestation Agent" ;
+            agent:version "1.2.0"
+        ] ;
+        agent:purposeAndRole [
+            a agent:PurposeRole ;
+            agent:objective "To generate and provide secure attestations of the vehicle's state, interfacing with the Hardware Root of Trust." ;
+            agent:owner :VehicleDID
+        ] ;
+        agent:capabilities [
+            a agent:CapabilityBundle ;
+            agent:skill "Hardware Attestation Generation", "Secure Boot Measurement Reporting"
+        ]
+    ] .
+
+# --- Intents ---
+
+:DeployBrakingUpdateIntent a core:Intent ;
+    rdfs:label "Intent to Deploy Braking Update" ;
+    intent:objective "Deploy braking control algorithm v2.1 to vehicle #AV-789." .
+
+:VerifyVehicleIntegrityIntent a core:Intent ;
+    rdfs:label "Intent to Verify Vehicle Integrity" ;
+    intent:objective "Verify the secure boot state of vehicle #AV-789 as a precondition for a critical update." .
+
+# --- Delegation ---
+
+:RequestAttestationDelegation a delegation:Delegation ;
+    delegation:delegatedBy :OTA_Update_Management_Agent ;
+    delegation:delegatesTo :Vehicle_Attestation_Agent ;
+    delegation:delegationScope "Provide a secure attestation of the boot chain, signed by the Hardware Root of Trust." .
+
+# --- Actions and Artifacts ---
+
+:GenerateAttestationAction a core:Action ;
+    rdfs:label "Generate Secure Attestation Action" ;
+    core:contextOf :RequestAttestationDelegation ;
+    core:producesArtifact :AttestationReport .
+
+:AttestationReport a core:Artifact ;
+    rdfs:label "Secure Attestation Report for Vehicle #AV-789" ;
+    core:description "A semantically structured report containing boot-chain measurements and a cryptographic proof (Quote) from the Hardware Root of Trust." ;
+    :bootchainHashes [
+        a rdf:Seq ;
+        rdf:_1 "hash_of_uefi" ;
+        rdf:_2 "hash_of_bootloader" ;
+        rdf:_3 "hash_of_kernel"
+    ] ;
+    security:securityBinding [
+        a security:SecurityBinding ;
+        security:cryptographicBinding "TPM2_Quote_Signature" ;
+        security:trustModel "Hardware_Root_of_Trust_via_AIK" ;
+        security:proofValue "base64-encoded-quote-from-hardware..." ;
+        security:signedBy :HardwareRootOfTrustDID
+    ] .
+
+:VerifyAttestationAction a core:Action ;
+    rdfs:label "Verify Attestation Report Action" ;
+    core:contextOf :OTA_Update_Management_Agent ;
+    core:producesArtifact :VerificationResult .
+
+:VerificationResult a core:Artifact ;
+    rdfs:label "Attestation Verification Result" ;
+    core:description "Verification successful. Boot chain hashes match the golden measurement for this vehicle model. Signature is valid." .

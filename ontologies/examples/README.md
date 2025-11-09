@@ -78,6 +78,11 @@ We encourage you to explore each example to understand how the Agent Ontology ca
 *   **Key Concepts**: Multi-Agent Collaboration, Intent-Driven Workflow, Dynamic Delegation, Verifiable Credentials/Presentations, Semantic Mediation, Secure Execution Context, Security Binding, End-to-End Accountability.
 *   **Location**: `federated-digital-identity/`
 
+### 14. Secure Execution Environment Attestation (Detailed User Story)
+*   **Description**: Details how an agent can provide a verifiable proof of its system's integrity, anchored in a Hardware Root of Trust (e.g., Arm TrustZone, TPM). This is critical for deploying safety-critical updates in environments like autonomous vehicles.
+*   **Key Concepts**: Remote Attestation, Hardware Root of Trust, DID for Hardware, Verifiable Boot Chain, End-to-End Trust, Security Binding (TPM Quote).
+*   **Location**: `secure-execution-attestation/`
+
 ---
 
 **How to Contribute**: If you have ideas for new examples or improvements to existing ones, please refer to the main [CONTRIBUTING.md](../../CONTRIBUTING.md) file and open an issue or pull request.

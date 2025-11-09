@@ -1,0 +1,130 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix agent: <https://ns.slashlife.ai/agent/agent#> .
+@prefix intent: <https://ns.slashlife.ai/agent/intent#> .
+@prefix delegation: <https://ns.slashlife.ai/agent/delegation#> .
+@prefix security: <https://ns.slashlife.ai/agent/security-binding#> .
+@prefix ex: <https://ns.slashlife.ai/agent/examples/secure-execution-attestation#> .
+
+# --- Agent Base Shape (reusable) --- 
+
+ex:AgentBaseShape
+    a sh:NodeShape ;
+    sh:targetClass core:Agent ;
+    sh:property [
+        sh:path agent:hasProfile ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node [
+            a sh:NodeShape ;
+            sh:property [
+                sh:path agent:coreIdentity ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:node [
+                    a sh:NodeShape ;
+                    sh:property [
+                        sh:path agent:did ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                        sh:datatype xsd:string ;
+                        sh:pattern "^did:.+$" ;
+                    ]
+                ]
+            ]
+        ]
+    ] .
+
+# --- Intent Shape --- 
+
+ex:IntentShape
+    a sh:NodeShape ;
+    sh:targetClass core:Intent ;
+    sh:property [
+        sh:path intent:objective ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+    ] .
+
+# --- Delegation Shape --- 
+
+ex:DelegationShape
+    a sh:NodeShape ;
+    sh:targetNode ex:RequestAttestationDelegation ;
+    sh:property [
+        sh:path delegation:delegatedBy ;
+        sh:hasValue ex:OTA_Update_Management_Agent ;
+    ] ;
+    sh:property [
+        sh:path delegation:delegatesTo ;
+        sh:hasValue ex:Vehicle_Attestation_Agent ;
+    ] ;
+    sh:property [
+        sh:path delegation:delegationScope ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+    ] .
+
+# --- Artifact Shapes --- 
+
+ex:AttestationReportShape
+    a sh:NodeShape ;
+    sh:targetNode ex:AttestationReport ;
+    sh:property [
+        sh:path ex:bootchainHashes ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNode ; # Assuming it's a list
+    ] ;
+    sh:property [
+        sh:path security:securityBinding ;
+        sh:minCount 1 ;
+        sh:node [
+            a sh:NodeShape ;
+            sh:property [
+                sh:path security:cryptographicBinding ;
+                sh:hasValue "TPM2_Quote_Signature" ;
+            ] ;
+            sh:property [
+                sh:path security:trustModel ;
+                sh:hasValue "Hardware_Root_of_Trust_via_AIK" ;
+            ] ;
+            sh:property [
+                sh:path security:proofValue ;
+                sh:minCount 1 ;
+                sh:datatype xsd:string ;
+            ] ;
+            sh:property [
+                sh:path security:signedBy ;
+                sh:hasValue ex:HardwareRootOfTrustDID ;
+            ]
+        ]
+    ] .
+
+# --- Action Shapes --- 
+
+ex:GenerateAttestationActionShape
+    a sh:NodeShape ;
+    sh:targetNode ex:GenerateAttestationAction ;
+    sh:property [
+        sh:path core:contextOf ;
+        sh:hasValue ex:RequestAttestationDelegation ;
+    ] ;
+    sh:property [
+        sh:path core:producesArtifact ;
+        sh:hasValue ex:AttestationReport ;
+    ] .
+
+ex:VerifyAttestationActionShape
+    a sh:NodeShape ;
+    sh:targetNode ex:VerifyAttestationAction ;
+    sh:property [
+        sh:path core:contextOf ;
+        sh:hasValue ex:OTA_Update_Management_Agent ;
+    ] ;
+    sh:property [
+        sh:path core:producesArtifact ;
+        sh:hasValue ex:VerificationResult ;
+    ] .
