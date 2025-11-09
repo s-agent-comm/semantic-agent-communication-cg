@@ -1,37 +1,69 @@
-# AI Agent Ontology Community Group
+# Semantic Agent Communication Community Group  
+*W3C Community Group — Draft Repository Overview*
 
-## Project Goal: Standardizing a Real-World Agent Operational Model
+## 1. Scope and Purpose
 
-This project does not start from scratch. Its core semantic model is abstracted and refined from two operational systems, **SlashLife's "AI Workforce OS" and "AI Backoffice"**, based on their **cross-border application use cases**.
+The **Semantic Agent Communication Community Group (SAC-CG)** aims to define a shared, interoperable semantic model for communication between AI Agents across different systems, vendors, and jurisdictions.  
+This includes foundational ontology layers for **identity binding**, **capability description**, **delegation structures**, **intent semantics**, and **verifiable execution records** supporting secure and auditable agent-to-agent interaction.
 
-Therefore, the primary goal of this project is to contribute this real-world-validated Agent operational model and promote it as an open W3C standard. We hope to transform a successful proprietary practice into a public infrastructure that can benefit the entire industry.
+The ontology developed here is abstracted from operational cross-border systems to ensure practical applicability and technical feasibility.  
+The long-term objective is alignment with frameworks such as the **EU AI Act**, **EUDI Wallet**, **EU Business Wallet**, **Data Act**, and future **ISO/IEC** tracks for AI interoperability.
 
-To ensure the standard's practicality and feasibility, **SlashLife's AI Workforce OS will serve as an important Reference Implementation for this standard**. This means that every concept we propose will have a real system available for validation, testing, and demonstration. Most importantly, the standard itself remains open, and we strongly encourage the community to develop more diverse and interoperable implementations based on it.
+---
 
-## Repository Structure
+## 2. Repository Structure
 
-This repository is structured to facilitate the development of this web standard:
+This repository is organized to support the technical work of the Community Group:
 
-*   `ontologies/`: **The Core of the Project**
-    *   **`.ttl` files**: The formal definitions of the ontology, rigorously defining core concepts of an Agent and their relationships. This is the foundation of the standard.
-    *   **`context/`**: Contains JSON-LD context files, which act as a "translator" to map plain JSON data to the semantics defined in the ontology.
-    *   **`profiles/` (i.e., `schemas/`)**: Contains JSON Schemas for validating the format of data during API calls or data exchange.
-    *   **`examples/`**: Provides concrete examples of how to use this ontology to describe a real-world Agent.
+### **2.1 `ontologies/` — Core Semantic Definitions**
+- `.ttl` ontology files defining Agents, capabilities, identity, delegation, ledger semantics.  
+- `context/`: JSON-LD contexts mapping JSON payloads to ontology definitions.  
+- `profiles/`: JSON Schemas for API-level validation.  
+- `examples/`: Concrete samples illustrating ontology usage.
 
-*   `specs/`: **Human-Readable Documents**
-    *   Contains technical specifications, white papers, and other documents that explain the design principles and purpose of the standard in natural language.
+### **2.2 `specs/` — Human-Readable Specifications**
+Documents explaining design considerations, conceptual models, and intended usage.
 
-*   `discussions/`: **Community Collaboration**
-    *   Manages meeting minutes, proposals, issues, and other community discussions.
+### **2.3 `discussions/` — Community Collaboration**
+Meeting notes, proposals, design discussions, and alternative approaches.
 
-*   `tests/`: **Ensuring Quality**
-    *   Contains test cases (e.g., SHACL) to verify that data conforms to the logical rules of the ontology, ensuring correctness and consistency.
+### **2.4 `tests/` — Consistency and Conformance**
+Validation resources (e.g., SHACL) ensuring logical correctness and interoperability.
 
-## Ultimate Vision
+---
 
-The ultimate vision of this project is to achieve **seamless interoperability for AI Agents across Web, Operating System (OS), and Hardware layers**.
+## 3. Reference Implementation
 
-By standardizing a proven model, we hope to enable any third-party developers, companies, or open-source projects that follow this standard to:
-*   Develop Agents that can seamlessly collaborate with AI Workforce OS and **other compatible systems**.
-*   Securely conduct cross-system and cross-organizational task delegation and value exchange using this standardized semantic layer.
-*   Jointly build a larger, more open, and more trustworthy AI Agent ecosystem.
+The ontology is informed by and validated against a real operational environment:  
+**AI Workforce OS**, an agent-native runtime designed for cross-border operational use cases.
+
+The CG encourages additional independent implementations.  
+The ontology is intended to be generic and not tied to any single runtime.
+
+---
+
+## 4. Goals of the Community Group
+
+The CG seeks to develop:
+
+- A unified semantic model for Agent **identity**, **capabilities**, **delegation**, and **intent**.  
+- Machine-interpretable structures enabling **verifiable execution**, **traceability**, and **auditability**.  
+- Interoperable building blocks across **multi-vendor**, **multi-jurisdiction**, and **cross-layer** environments.  
+- A clear path toward potential future W3C Notes and downstream **ISO/IEC** standardization.
+
+---
+
+## 5. Participation
+
+The Community Group is open to all.
+
+To join, visit:  
+**https://www.w3.org/community/semantic-agent-communication/**  
+(*Activation pending 5 supporters.*)
+
+---
+
+## 6. License
+
+Ontology files and specifications will follow open licenses (e.g., W3C Software and Document License) to support broad adoption and interoperability.
+
