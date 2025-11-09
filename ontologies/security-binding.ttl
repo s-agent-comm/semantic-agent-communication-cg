@@ -1,0 +1,79 @@
+@prefix sec: <http://example.org/agent-ontology/security-binding#> .
+@prefix agent: <http://example.org/agent-ontology/agent#> .
+@prefix ledger: <http://example.org/agent-ontology/ledger#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Trust Chain Classes
+#################################################################
+
+sec:SecurityBinding a owl:Class ;
+    rdfs:label "SecurityBinding" ;
+    rdfs:comment "Represents the chain binding DID → Key Material → Hardware → Ledger verification." .
+
+sec:KeyMaterial a owl:Class ;
+    rdfs:label "KeyMaterial" ;
+    rdfs:comment "A cryptographic key associated with an agent identity." .
+
+sec:KeyType a owl:Class ;
+    rdfs:label "KeyType" ;
+    rdfs:comment "Specifies the cryptographic algorithm or format (Ed25519, RSA, secp256k1)." .
+
+sec:HardwareRootOfTrust a owl:Class ;
+    rdfs:label "HardwareRootOfTrust" ;
+    rdfs:comment "TEE / TPM / Secure Element providing attested identity and execution guarantees." .
+
+sec:TrustAnchor a owl:Class ;
+    rdfs:label "TrustAnchor" ;
+    rdfs:comment "A root-level verifier or certificate authority validating hardware attestation." .
+
+#################################################################
+# Binding Properties
+#################################################################
+
+sec:hasKeyMaterial a owl:ObjectProperty ;
+    rdfs:domain agent:Agent ;
+    rdfs:range sec:KeyMaterial ;
+    rdfs:label "hasKeyMaterial" .
+
+sec:keyType a owl:ObjectProperty ;
+    rdfs:domain sec:KeyMaterial ;
+    rdfs:range sec:KeyType ;
+    rdfs:label "keyType" .
+
+sec:anchoredBy a owl:ObjectProperty ;
+    rdfs:domain sec:KeyMaterial ;
+    rdfs:range sec:HardwareRootOfTrust ;
+    rdfs:label "anchoredBy" .
+
+sec:verifiedBy a owl:ObjectProperty ;
+    rdfs:domain sec:HardwareRootOfTrust ;
+    rdfs:range sec:TrustAnchor ;
+    rdfs:label "verifiedBy" .
+
+sec:signsRecord a owl:ObjectProperty ;
+    rdfs:domain sec:KeyMaterial ;
+    rdfs:range ledger:LedgerRecord ;
+    rdfs:label "signsRecord" ;
+    rdfs:comment "Indicates ledger entries signed using this key material." .
+
+#################################################################
+# Metadata
+#################################################################
+
+sec:keyValue a owl:DatatypeProperty ;
+    rdfs:domain sec:KeyMaterial ;
+    rdfs:range xsd:string ;
+    rdfs:label "keyValue" .
+
+sec:attestationReport a owl:DatatypeProperty ;
+    rdfs:domain sec:HardwareRootOfTrust ;
+    rdfs:range xsd:string ;
+    rdfs:label "attestationReport" .
+
+sec:trustLevel a owl:DatatypeProperty ;
+    rdfs:domain sec:HardwareRootOfTrust ;
+    rdfs:range xsd:string ;
+    rdfs:label "trustLevel" .

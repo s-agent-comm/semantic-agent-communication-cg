@@ -1,0 +1,72 @@
+@prefix ctx: <http://example.org/agent-ontology/execution-context#> .
+@prefix intent: <http://example.org/agent-ontology/intent#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Execution Environment Classes
+#################################################################
+
+ctx:ExecutionEnvironment a owl:Class ;
+    rdfs:label "ExecutionEnvironment" ;
+    rdfs:comment "Describes the host environment where an action is executed." .
+
+ctx:SecurityContext a owl:Class ;
+    rdfs:label "SecurityContext" ;
+    rdfs:comment "Security-related constraints and guarantees active during execution." .
+
+ctx:InputState a owl:Class ;
+    rdfs:label "InputState" ;
+    rdfs:comment "Represents the inputs provided to an action." .
+
+ctx:OutputState a owl:Class ;
+    rdfs:label "OutputState" ;
+    rdfs:comment "Represents the outputs returned by an action." .
+
+#################################################################
+# Execution Environment Properties
+#################################################################
+
+ctx:hasEnvironment a owl:ObjectProperty ;
+    rdfs:domain intent:ExecutionContext ;
+    rdfs:range ctx:ExecutionEnvironment ;
+    rdfs:label "hasEnvironment" .
+
+ctx:hasSecurityContext a owl:ObjectProperty ;
+    rdfs:domain intent:ExecutionContext ;
+    rdfs:range ctx:SecurityContext ;
+    rdfs:label "hasSecurityContext" .
+
+ctx:inputState a owl:ObjectProperty ;
+    rdfs:domain intent:ExecutionContext ;
+    rdfs:range ctx:InputState .
+
+ctx:outputState a owl:ObjectProperty ;
+    rdfs:domain intent:ExecutionContext ;
+    rdfs:range ctx:OutputState .
+
+#################################################################
+# Environment Metadata
+#################################################################
+
+ctx:envType a owl:DatatypeProperty ;
+    rdfs:domain ctx:ExecutionEnvironment ;
+    rdfs:range xsd:string ;
+    rdfs:comment "e.g., native, sandbox, container, vm, TEE." .
+
+ctx:usesTEE a owl:DatatypeProperty ;
+    rdfs:domain ctx:SecurityContext ;
+    rdfs:range xsd:boolean .
+
+ctx:usesKeySlot a owl:DatatypeProperty ;
+    rdfs:domain ctx:SecurityContext ;
+    rdfs:range xsd:string .
+
+ctx:inputValue a owl:DatatypeProperty ;
+    rdfs:domain ctx:InputState ;
+    rdfs:range xsd:string .
+
+ctx:outputValue a owl:DatatypeProperty ;
+    rdfs:domain ctx:OutputState ;
+    rdfs:range xsd:string .

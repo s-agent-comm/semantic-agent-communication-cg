@@ -1,0 +1,97 @@
+@prefix intent: <http://example.org/agent-ontology/intent#> .
+@prefix core: <http://example.org/agent-ontology/core#> .
+@prefix del: <http://example.org/agent-ontology/delegation#> .
+@prefix ledger: <http://example.org/agent-ontology/ledger#> .
+@prefix cap: <http://example.org/agent-ontology/capability#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Intent Model — Core Classes
+#################################################################
+
+intent:Intent a owl:Class ;
+    rdfs:label "Intent" ;
+    rdfs:comment "A semantic statement expressing what an agent aims to achieve." .
+
+intent:IntentType a owl:Class ;
+    rdfs:label "IntentType" ;
+    rdfs:comment "Categorizes an intent (e.g., fetch-data, make-decision, generate-artifact)." .
+
+intent:IntentParameter a owl:Class ;
+    rdfs:label "IntentParameter" ;
+    rdfs:comment "Typed parameters specifying the scope and execution conditions of an intent." .
+
+intent:Action a owl:Class ;
+    rdfs:label "Action" ;
+    rdfs:comment "An executable operation derived from an intent." .
+
+intent:ActionType a owl:Class ;
+    rdfs:label "ActionType" ;
+    rdfs:comment "Category of an actionable execution unit." .
+
+intent:ExecutionContext a owl:Class ;
+    rdfs:label "ExecutionContext" ;
+    rdfs:comment "Run-time context under which an action is executed." .
+
+#################################################################
+# Intent Properties
+#################################################################
+
+intent:hasIntentType a owl:ObjectProperty ;
+    rdfs:domain intent:Intent ;
+    rdfs:range intent:IntentType ;
+    rdfs:label "hasIntentType" .
+
+intent:hasParameter a owl:ObjectProperty ;
+    rdfs:domain intent:Intent ;
+    rdfs:range intent:IntentParameter ;
+    rdfs:label "hasParameter" .
+
+intent:authorizedBy a owl:ObjectProperty ;
+    rdfs:domain intent:Intent ;
+    rdfs:range del:Delegation ;
+    rdfs:label "authorizedBy" ;
+    rdfs:comment "Links an intent to the delegation statement that authorizes it." .
+
+intent:producesAction a owl:ObjectProperty ;
+    rdfs:domain intent:Intent ;
+    rdfs:range intent:Action ;
+    rdfs:label "producesAction" .
+
+#################################################################
+# Action Properties
+#################################################################
+
+intent:hasActionType a owl:ObjectProperty ;
+    rdfs:domain intent:Action ;
+    rdfs:range intent:ActionType ;
+    rdfs:label "hasActionType" .
+
+intent:executedIn a owl:ObjectProperty ;
+    rdfs:domain intent:Action ;
+    rdfs:range intent:ExecutionContext ;
+    rdfs:label "executedIn" .
+
+intent:loggedAs a owl:ObjectProperty ;
+    rdfs:domain intent:Action ;
+    rdfs:range ledger:RuntimeLedgerRecord ;
+    rdfs:label "loggedAs" ;
+    rdfs:comment "Links an executed action to its ledger record." .
+
+#################################################################
+# Parameters
+#################################################################
+
+intent:paramName a owl:DatatypeProperty ;
+    rdfs:domain intent:IntentParameter ;
+    rdfs:range xsd:string .
+
+intent:paramType a owl:DatatypeProperty ;
+    rdfs:domain intent:IntentParameter ;
+    rdfs:range xsd:string .
+
+intent:paramValue a owl:DatatypeProperty ;
+    rdfs:domain intent:IntentParameter ;
+    rdfs:range xsd:string .
