@@ -1,32 +1,37 @@
-# Agent Ontology — W3C Community Group Work Repository
+# AI Agent Ontology Community Group
 
-This repository hosts the ontology and semantic modeling work of the  
-**W3C Semantic Agent Communication Community Group**.
+## Project Goal: Standardizing a Real-World Agent Operational Model
 
-The work focuses on defining the semantic structures required for  
-communication between AI agents operating as delegated and accountable  
-technical principals.
+This project does not start from scratch. Its core semantic model is abstracted and refined from two operational systems, **SlashLife's "AI Workforce OS" and "AI Backoffice"**, based on their **cross-border application use cases**.
 
-## Scope
+Therefore, the primary goal of this project is to contribute this real-world-validated Agent operational model and promote it as an open W3C standard. We hope to transform a successful proprietary practice into a public infrastructure that can benefit the entire industry.
 
-The repository includes:
+To ensure the standard's practicality and feasibility, **SlashLife's AI Workforce OS will serve as an important Reference Implementation for this standard**. This means that every concept we propose will have a real system available for validation, testing, and demonstration. Most importantly, the standard itself remains open, and we strongly encourage the community to develop more diverse and interoperable implementations based on it.
 
-- Ontologies describing agent identity, capability, intent semantics,
-  delegation structures, and verifiable accountability chains.
-- JSON-LD schemas for interoperable agent-to-agent data exchange.
-- Examples illustrating how the ontologies may be used across
-  heterogeneous runtimes and OS-level environments.
-- Supporting materials for Community Group discussions and participation.
+## Repository Structure
 
-## Related Foundations
+This repository is structured to facilitate the development of this web standard:
 
-- RDF / RDFS / OWL
-- Linked Data
-- Decentralized Identifiers (DID)
-- Verifiable Credentials (VC)
-- Semantic Web architecture
+*   `ontologies/`: **The Core of the Project**
+    *   **`.ttl` files**: The formal definitions of the ontology, rigorously defining core concepts of an Agent and their relationships. This is the foundation of the standard.
+    *   **`context/`**: Contains JSON-LD context files, which act as a "translator" to map plain JSON data to the semantics defined in the ontology.
+    *   **`profiles/` (i.e., `schemas/`)**: Contains JSON Schemas for validating the format of data during API calls or data exchange.
+    *   **`examples/`**: Provides concrete examples of how to use this ontology to describe a real-world Agent.
 
-## Contribution
+*   `specs/`: **Human-Readable Documents**
+    *   Contains technical specifications, white papers, and other documents that explain the design principles and purpose of the standard in natural language.
 
-Contribution is open to all Community Group participants.  
-Please see `governance/contribution-guidelines.md` for details.
+*   `discussions/`: **Community Collaboration**
+    *   Manages meeting minutes, proposals, issues, and other community discussions.
+
+*   `tests/`: **Ensuring Quality**
+    *   Contains test cases (e.g., SHACL) to verify that data conforms to the logical rules of the ontology, ensuring correctness and consistency.
+
+## Ultimate Vision
+
+The ultimate vision of this project is to achieve **seamless interoperability for AI Agents across Web, Operating System (OS), and Hardware layers**.
+
+By standardizing a proven model, we hope to enable any third-party developers, companies, or open-source projects that follow this standard to:
+*   Develop Agents that can seamlessly collaborate with AI Workforce OS and **other compatible systems**.
+*   Securely conduct cross-system and cross-organizational task delegation and value exchange using this standardized semantic layer.
+*   Jointly build a larger, more open, and more trustworthy AI Agent ecosystem.
