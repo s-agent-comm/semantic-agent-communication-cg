@@ -6,18 +6,18 @@ This use case addresses a significant challenge in the global digital economy: e
 ## User Story: A Japanese Citizen in Taiwan Opening a German Investment Account
 
 **As a** Japanese citizen (Kenji) residing in Taiwan,
-**I want to** open a high-yield investment account with a German FinTech bank ("Berlin FinTech Bank") using my existing digital identities (JP MyNumber, TWDIW),
+**I want to** open a high-yield investment account with a EuroTrust FinTech Bank using my existing digital identities (JP MyNumber, TWDIW),
 **so that** I can complete the complex KYC (Know Your Customer) process quickly and securely without mailing physical documents.
 
 ## The Challenge: Bridging Disparate Identity Systems
-Berlin FinTech Bank has stringent AML (Anti-Money Laundering) and KYC requirements, demanding verification of:
+EuroTrust FinTech Bank has stringent AML (Anti-Money Laundering) and KYC requirements, demanding verification of:
 1.  **Primary Identity**: Issued by a trusted national government.
 2.  **Proof of Residency**: Current residential address.
 3.  **Tax Identification Number (TIN)**: For tax reporting compliance.
 
 Kenji's digital identity attributes are distributed across three distinct systems:
-*   **JP MyNumber**: Contains his **primary citizen identity** and **Japanese Tax Identification Number**.
-*   **TWDIW (Taiwan Digital Identity Wallet)**: Contains his **Taiwanese Alien Resident Certificate (ARC)** and **proof of current residential address**.
+*   **Sakura ID**: Contains his **primary citizen identity** and **Japanese Tax Identification Number**.
+*   **Formosa ID Wallet**: Contains his **Taiwanese Alien Resident Certificate (ARC)** and **proof of current residential address**.
 *   **EUDI Wallet Framework**: Although Kenji is not an EU citizen, the German bank's onboarding system is designed to accept verifiable credentials (VCs) that conform to the **EUDI framework** (e.g., eIDAS standards) for interoperability within the EU. This requires Kenji's agent to present credentials in a compatible format and trust model.
 
 ## Key Concepts Illustrated
@@ -34,22 +34,20 @@ This use case vividly demonstrates several advanced applications of the Agent On
 ## Workflow Breakdown and Ontology Mapping:
 
 ### 1. User's Initial Intent to Open Account
--   **Description**: Kenji initiates the process through his Personal Finance Application, expressing his desire to open an investment account with Berlin FinTech Bank.
--   **Ontology Mapping**: A `core:Intent` instance, `:KenjiOnboardingIntent`, is created by Kenji's `:PersonalFinanceAgent`. Its `intent:objective` is "Open investment account with Berlin FinTech Bank." This `Intent` drives the entire subsequent workflow.
+-   **Description**: Kenji initiates the process through his Personal Finance Application, expressing his desire to open an investment account with EuroTrust FinTech Bank.
+    **Ontology Mapping**: A `core:Intent` instance, `:KenjiOnboardingIntent`, is created by Kenji's `:PersonalFinanceAgent`. Its `intent:objective` is "Open investment account with EuroTrust FinTech Bank." This `Intent` drives the entire subsequent workflow.
 
 ### 2. Negotiation and Data Requirement List
--   **Description**: Kenji's Personal Finance Agent communicates with Berlin FinTech Bank's Onboarding Agent to understand the KYC requirements. The bank's agent provides a structured list of required identity attributes and the acceptable trust frameworks (e.g., EUDI-compatible VCs).
+-   **Description**: Kenji's Personal Finance Agent communicates with EuroTrust FinTech Bank's Onboarding Agent to understand the KYC requirements. The bank's agent provides a structured list of required identity attributes and the acceptable trust frameworks (e.g., EUDI-compatible VCs).
 -   **Ontology Mapping**: The `:BerlinFinTechOnboardingAgent` responds with a `core:Artifact`, `:KYCRequirementList`, which is a semantic representation of the required VCs (e.g., `ProofOfIdentity`, `ProofOfAddress`, `TaxID`) and their expected `SecurityBinding` properties.
 
 ### 3. Multi-Source Delegation for Credential Access
 -   **Description**: Kenji's Personal Finance Agent, knowing the requirements, identifies that the necessary credentials are held in his JP MyNumber Wallet and TWDIW. It then requests explicit authorization from Kenji (via his respective wallet applications) to access these specific attributes.
 -   **Ontology Mapping**:
-    *   **Delegation to JP MyNumber Wallet Agent**: A `delegation:Delegation` instance, `:Delegation_FinanceToJPMynumber`, is created. `delegation:delegatedBy` is `:PersonalFinanceAgent`, `delegation:delegatesTo` is `:JPMynumberWalletAgent`. `delegation:delegationScope` is precisely defined: "Provide Verifiable Credential containing primary citizen identity and Japanese Tax Identification Number."
-    *   **Delegation to TWDIW Agent**: Similarly, `:Delegation_FinanceToTWDIW` is created. `delegation:delegatedBy` is `:PersonalFinanceAgent`, `delegation:delegatesTo` is `:TWDIWAgent`. `delegation:delegationScope` is: "Provide Verifiable Credential containing Taiwanese Alien Resident Certificate and current residential address."
-    *   Kenji's approval in his wallet apps completes these delegations.
+    *   **Delegation to Sakura ID Wallet Agent**: A `delegation:Delegation` instance, `:Delegation_FinanceToJPMynumber`, is created. `delegation:delegatedBy` is `:PersonalFinanceAgent`, `delegation:delegatesTo` is `:JPMynumberWalletAgent`. `delegation:delegationScope` is precisely defined: "Provide Verifiable Credential containing primary citizen identity and Japanese Tax Identification Number."    *   **Delegation to Formosa ID Wallet Agent**: Similarly, `:Delegation_FinanceToTWDIW` is created. `delegation:delegatedBy` is `:PersonalFinanceAgent`, `delegation:delegatesTo` is `:TWDIWAgent`. `delegation:delegationScope` is: "Provide Verifiable Credential containing Taiwanese Alien Resident Certificate and current residential address."    *   Kenji's approval in his wallet apps completes these delegations.
 
 ### 4. Aggregation and EUDI-Compatible Verifiable Presentation Generation
--   **Description**: Upon receiving the authorized VCs from both JP MyNumber and TWDIW, Kenji's Personal Finance Agent performs a crucial aggregation and transformation step. It combines these disparate VCs into a single `VerifiablePresentation` that adheres to the EUDI framework's data model and cryptographic requirements.
+-   **Description**: Upon receiving the authorized VCs from both Sakura ID and Formosa ID Wallet, Kenji's Personal Finance Agent performs a crucial aggregation and transformation step. It combines these disparate VCs into a single `VerifiablePresentation` that adheres to the EUDI framework's data model and cryptographic requirements.
 -   **Ontology Mapping**: The `:PersonalFinanceAgent` executes a `core:Action`, `:GenerateEUDIVPAction`. This `Action` takes the VCs from JP MyNumber and TWDIW as implicit inputs and `core:producesArtifact` which is the `:EUDI_Compatible_VP`. This `Artifact` will have a `security:SecurityBinding` (e.g., `cryptographicBinding: JWS`, `trustModel: eIDAS-compliant`) to ensure its integrity and compliance with EU standards.
 
 ### 5. Secure Submission in Defined Execution Context

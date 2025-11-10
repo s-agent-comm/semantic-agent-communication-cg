@@ -35,19 +35,19 @@
     ] .
 
 :EventOrganizerAgent a core:Agent ;
-    rdfs:label "Latin Gala Event Organizer Agent" ;
+    rdfs:label "Rhythm Fest Event Organizer Agent" ;
     agent:hasProfile [
         a agent:AgentProfile ;
         agent:coreIdentity [
             a agent:AgentIdentity ;
-            agent:did "did:web:latingala.com" ;
-            agent:title "Latin Gala Event Organizer Agent" ;
+            agent:did "did:web:rhythmfest.com" ;
+            agent:title "Rhythm Fest Event Organizer Agent" ;
             agent:version "1.0.0"
         ] ;
         agent:purposeAndRole [
             a agent:PurposeRole ;
             agent:objective "To organize, promote, and manage dance events." ;
-            agent:owner "did:web:latingala.com"
+            agent:owner "did:web:rhythmfest.com"
         ] ;
         agent:capabilities [
             a agent:CapabilityBundle ;
@@ -56,53 +56,53 @@
     ] .
 
 :StyleRecommendationAgent a core:Agent ;
-    rdfs:label "Style Recommendation Agent" ;
+    rdfs:label "FashionFlow Recommendation Agent" ;
     agent:hasProfile [
         a agent:AgentProfile ;
         agent:coreIdentity [
             a agent:AgentIdentity ;
-            agent:did "did:web:style-ai.com" ;
-            agent:title "Style Recommendation Agent" ;
+            agent:did "did:web:fashionflow.com" ;
+            agent:title "FashionFlow Recommendation Agent" ;
             agent:version "2.1.0"
         ] ;
         agent:purposeAndRole [
             a agent:PurposeRole ;
             agent:objective "To provide personalized fashion and style recommendations." ;
-            agent:owner "did:web:style-ai.com"
+            agent:owner "did:web:fashionflow.com"
         ]
     ] .
 
 :SocialMediaAgent a core:Agent ;
-    rdfs:label "Social Media Posting Agent" ;
+    rdfs:label "ConnectSphere Posting Agent" ;
     agent:hasProfile [
         a agent:AgentProfile ;
         agent:coreIdentity [
             a agent:AgentIdentity ;
-            agent:did "did:web:socialpost-api.com" ;
-            agent:title "Social Media Posting Agent" ;
+            agent:did "did:web:connectsphere.com" ;
+            agent:title "ConnectSphere Posting Agent" ;
             agent:version "3.0.0"
         ] ;
         agent:purposeAndRole [
             a agent:PurposeRole ;
             agent:objective "To automate content creation and posting to social media platforms." ;
-            agent:owner "did:web:socialpost-api.com"
+            agent:owner "did:web:connectsphere.com"
         ]
     ] .
 
 :BrandSponsorAgent a core:Agent ;
-    rdfs:label "Elegancia Dance Shoes Brand Sponsor Agent" ;
+    rdfs:label "Graceful Steps Dance Shoes Brand Sponsor Agent" ;
     agent:hasProfile [
         a agent:AgentProfile ;
         agent:coreIdentity [
             a agent:AgentIdentity ;
-            agent:did "did:web:elegancia-shoes.com" ;
-            agent:title "Elegancia Dance Shoes Brand Sponsor Agent" ;
+            agent:did "did:web:gracefulsteps.com" ;
+            agent:title "Graceful Steps Dance Shoes Brand Sponsor Agent" ;
             agent:version "1.0.0"
         ] ;
         agent:purposeAndRole [
             a agent:PurposeRole ;
             agent:objective "To identify and collaborate with influencers for brand promotion." ;
-            agent:owner "did:web:elegancia-shoes.com"
+            agent:owner "did:web:gracefulsteps.com"
         ]
     ] .
 
@@ -113,31 +113,31 @@
     intent:objective "Find a suitable Bachata event for an advanced dancer this weekend." .
 
 :EventDetails_LatinGala a core:Artifact ;
-    rdfs:label "Event Details for Latin Gala" ;
-    core:description "Latin Gala: White Party Edition. Date: 2025-11-15. Venue: The Grand Ballroom. DJ: DJ Sol. Theme: White Party. Cost: 30 USD." .
+    rdfs:label "Event Details for Rhythm Fest" ;
+    core:description "Rhythm Fest: White Party Edition. Date: 2025-11-15. Venue: The Grand Ballroom. DJ: DJ Sol. Theme: White Party. Cost: 30 USD." .
 
 # --- Phase 2: Preparation ---
 
 :PrepareForGalaIntent a core:Intent ;
-    rdfs:label "Prepare for the Latin Gala" ;
-    intent:objective "Get style recommendations and register for the Latin Gala." .
+    rdfs:label "Prepare for the Rhythm Fest" ;
+    intent:objective "Get style recommendations and register for the Rhythm Fest." .
 
 :DelegateStyleRecommendation a delegation:Delegation ;
     delegation:delegatedBy :BachataDancerAgent ;
     delegation:delegatesTo :StyleRecommendationAgent ;
-    delegation:delegationScope "Recommend an outfit for the 'Latin Gala' (theme: 'White Party'), based on my style profile (elegant, modern)." .
+    delegation:delegationScope "Recommend an outfit for the 'Rhythm Fest' (theme: 'White Party'), based on my style profile (elegant, modern)." .
 
 :OutfitRecommendation a core:Artifact ;
     rdfs:label "Outfit Recommendation for Latin Gala" ;
-    core:description "Recommendation: White lace dress by BrandX, silver heels by BrandY. Links: http://example.com/dress, http://example.com/heels" .
+    core:description "Recommendation: White lace dress by ChicWear, silver heels by StrideFootwear. Links: http://example.com/dress, http://example.com/heels" .
 
 :DelegateRegistration a delegation:Delegation ;
     delegation:delegatedBy :BachataDancerAgent ;
     delegation:delegatesTo :EventOrganizerAgent ;
-    delegation:delegationScope "Register me for the Latin Gala and process payment of 30 USD." .
+    delegation:delegationScope "Register me for the Rhythm Fest and process payment of 30 USD." .
 
 :RegistrationConfirmation a core:Artifact ;
-    rdfs:label "Registration Confirmation for Latin Gala" ;
+    rdfs:label "Registration Confirmation for Rhythm Fest" ;
     core:description "Sofia is confirmed for the Latin Gala. Ticket QR Code: [data]" .
 
 # --- Phase 4: Influencer Marketing ---
@@ -149,7 +149,7 @@
 :DelegateIGPost a delegation:Delegation ;
     delegation:delegatedBy :BachataDancerAgent ;
     delegation:delegatesTo :SocialMediaAgent ;
-    delegation:delegationScope "Create and post an Instagram Story using VideoClip_1 and VideoClip_2, add the song 'Obsesión', and tag @LatinGala and @DancePartner." .
+    delegation:delegationScope "Create and post an Instagram Story using VideoClip_1 and VideoClip_2, add the song 'Obsesión', and tag @RhythmFest and @DancePartner." .
 
 :InstagramStory a core:Artifact ;
     rdfs:label "Published Instagram Story" ;
@@ -166,11 +166,11 @@
     rdfs:label "Brand Sponsorship Deal Proposal" ;
     delegation:delegatedBy :BrandSponsorAgent ;
     delegation:delegatesTo :BachataDancerAgent ;
-    delegation:delegationScope "Create one Instagram Reel promoting our new 'Elegancia' dance shoes in exchange for a payment of 200 USD." .
+    delegation:delegationScope "Create one Instagram Reel promoting our new 'Graceful Steps' dance shoes in exchange for a payment of 200 USD." .
 
 :SponsorshipContract a contract:Contract ;
-    rdfs:label "Sponsorship Contract between Elegancia and Sofia" ;
-    contract:termsUri "https://elegancia-shoes.com/sponsorship-terms-sofia" .
+    rdfs:label "Sponsorship Contract between Graceful Steps and Sofia" ;
+    contract:termsUri "https://gracefulsteps.com/sponsorship-terms-sofia" .
 
 :SponsorshipPayment a payment:Payment ;
     rdfs:label "Payment for Sponsorship" ;

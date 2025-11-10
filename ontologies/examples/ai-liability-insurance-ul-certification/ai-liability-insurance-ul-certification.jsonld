@@ -25,7 +25,7 @@
         "agent:purposeAndRole": {
           "@type": "agent:PurposeRole",
           "agent:objective": "To perform high-precision surgical tasks under the delegation of a qualified surgeon.",
-          "agent:owner": "did:example:city-hospital"
+          "agent:owner": "did:example:metro-health-hospital"
         },
         "agent:capabilities": {
           "@type": "agent:CapabilityBundle",
@@ -40,19 +40,19 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#UL_Certification_Agent",
       "@type": "core:Agent",
-      "rdfs:label": "UL Certification Agent for AI Systems",
+      "rdfs:label": "GlobalCert Certification Agent for AI Systems",
       "agent:hasProfile": {
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
-          "agent:did": "did:web:ul.com",
-          "agent:title": "UL Certification Agent for AI Systems",
+          "agent:did": "did:web:globalcert.com",
+          "agent:title": "GlobalCert Certification Agent for AI Systems",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
           "@type": "agent:PurposeRole",
           "agent:objective": "To test and certify the safety and capabilities of AI agents against established standards.",
-          "agent:owner": "did:web:ul.com"
+          "agent:owner": "did:web:globalcert.com"
         },
         "agent:capabilities": {
           "@type": "agent:CapabilityBundle",
@@ -72,14 +72,14 @@
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
-          "agent:did": "did:web:ai-insurer.com",
+          "agent:did": "did:web:ai-assurance.com",
           "agent:title": "Insurer Underwriting Agent for AI Liability",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
           "@type": "agent:PurposeRole",
           "agent:objective": "To underwrite AI liability insurance policies based on risk assessment and third-party certifications.",
-          "agent:owner": "did:web:ai-insurer.com"
+          "agent:owner": "did:web:ai-assurance.com"
         },
         "agent:capabilities": {
           "@type": "agent:CapabilityBundle",
@@ -99,14 +99,14 @@
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
-          "agent:did": "did:web:ai-insurer.com:claims",
+          "agent:did": "did:web:ai-assurance.com:claims",
           "agent:title": "Insurer Claims Adjudication Agent",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
           "@type": "agent:PurposeRole",
           "agent:objective": "To adjudicate insurance claims by analyzing immutable operational data from insured AI agents.",
-          "agent:owner": "did:web:ai-insurer.com"
+          "agent:owner": "did:web:ai-assurance.com"
         },
         "agent:capabilities": {
           "@type": "agent:CapabilityBundle",
@@ -142,21 +142,21 @@
       "@type": "core:Action",
       "rdfs:label": "Certify Surgical Robot #SR-9001",
       "core:contextOf": {
-        "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#UL_Certification_Agent"
+        "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#GlobalCert_Certification_Agent"
       },
       "core:producesArtifact": {
-        "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#UL_Safety_Certificate"
+        "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#GlobalCert_Safety_Certificate"
       }
     },
     {
       "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#UL_Safety_Certificate",
       "@type": "core:Artifact",
-      "rdfs:label": "UL Safety Certificate for Surgical Robot #SR-9001",
-      "core:description": "Certifies that the agent 'did:example:surgical-robot-SN-9001' has been tested and conforms to safety standard UL-AI-2900. Certified capabilities: 'Perform 0.1mm precision cutting', 'Suture tissue', 'Laser ablation'. Operational constraints: Max speed 1mm/s.",
+      "rdfs:label": "GlobalCert Safety Certificate for Surgical Robot #SR-9001",
+      "core:description": "Certifies that the agent 'did:example:surgical-robot-SN-9001' has been tested and conforms to safety standard GlobalCert-AI-9000. Certified capabilities: 'Perform 0.1mm precision cutting', 'Suture tissue', 'Laser ablation'. Operational constraints: Max speed 1mm/s.",
       "security:securityBinding": {
         "@type": "security:SecurityBinding",
         "security:cryptographicBinding": "JWS",
-        "security:trustModel": "UL Certified Issuer",
+        "security:trustModel": "GlobalCert Certified Issuer",
         "security:signedBy": {
           "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#UL_Certification_Agent"
         }
@@ -185,7 +185,7 @@
       "rdfs:label": "AI Liability Insurance Policy #AI-LIAB-123",
       "core:description": "Policy covering operations of 'did:example:surgical-robot-SN-9001'. Coverage is contingent upon operations being within the scope of the referenced UL Safety Certificate.",
       "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#referencesCertificate": {
-        "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#UL_Safety_Certificate"
+        "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#GlobalCert_Safety_Certificate"
       },
       "security:securityBinding": {
         "@type": "security:SecurityBinding",
@@ -238,7 +238,7 @@
         "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#Insurer_Claims_Adjudication_Agent"
       },
       "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#accessesLedger": {
-        "@id": "https://ledger.city-hospital.com/robot-sr-9001"
+        "@id": "https://ledger.metro-health-hospital.com/robot-sr-9001"
       },
       "core:producesArtifact": {
         "@id": "https://ns.slashlife.ai/agent/examples/ai-liability-insurance-ul-certification#AdjudicationReport"
@@ -259,7 +259,7 @@
       },
       "payment:amount": "500000",
       "payment:currency": "USD",
-      "payment:payee": "did:example:city-hospital"
+      "payment:payee": "did:example:metro-health-hospital"
     }
   ]
 }

@@ -8,19 +8,19 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:BHTreadmillAgent a core:Agent ;
-    rdfs:label "BH Treadmill Agent (Model T-800)" ;
+:ZenithTreadmillAgent a core:Agent ;
+    rdfs:label "Zenith Treadmill Agent (Model Z-800)" ;
     agent:hasProfile [
         a agent:AgentProfile ;
         agent:coreIdentity [
             a agent:AgentIdentity ;
-            agent:did "did:example:bh-treadmill-SN-123456789" ;
-            agent:title "BH Treadmill Agent (Model T-800)" ;
+            agent:did "did:example:zenith-treadmill-SN-123456789" ;
+            agent:title "Zenith Treadmill Agent (Model Z-800)" ;
             agent:version "2.1.0"
         ] ;
         agent:purposeAndRole [
             a agent:PurposeRole ;
-            agent:objective "To provide a secure, interoperable digital interface for controlling a BH treadmill and monitoring workout data." ;
+            agent:objective "To provide a secure, interoperable digital interface for controlling a Zenith treadmill and monitoring workout data." ;
             agent:owner "did:example:user-alice-123"
         ] ;
         agent:capabilities [
@@ -44,7 +44,7 @@
         ] ;
         agent:systemIntegrationAndDependencies [
             a agent:SystemIntegration ;
-            agent:dependsOn <https://api.bh-fitness.com/firmware-service>
+            agent:dependsOn <https://api.zenith-fitness.com/firmware-service>
         ] ;
         security:securityBinding [
             a security:SecurityBinding ;

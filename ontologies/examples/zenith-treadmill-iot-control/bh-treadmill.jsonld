@@ -2,18 +2,17 @@
   "@context": "https://ns.slashlife.ai/agent/context/agent.jsonld",
   "@id": "https://ns.slashlife.ai/agent/examples/bh-treadmill-iot-control#BHTreadmillAgent",
   "@type": "core:Agent",
-  "rdfs:label": "BH Treadmill Agent (Model T-800)",
+  "rdfs:label": "Zenith Treadmill Agent (Model Z-800)",
   "agent:hasProfile": {
     "@type": "agent:AgentProfile",
     "agent:coreIdentity": {
       "@type": "agent:AgentIdentity",
-      "agent:did": "did:example:bh-treadmill-SN-123456789",
-      "agent:title": "BH Treadmill Agent (Model T-800)",
+                "agent:did": "did:example:zenith-treadmill-SN-123456789",          "agent:title": "Zenith Treadmill Agent (Model Z-800)",
       "agent:version": "2.1.0"
     },
     "agent:purposeAndRole": {
       "@type": "agent:PurposeRole",
-      "agent:objective": "To provide a secure, interoperable digital interface for controlling a BH treadmill and monitoring workout data.",
+      "agent:objective": "To provide a secure, interoperable digital interface for controlling a Zenith treadmill and monitoring workout data.",
       "agent:owner": "did:example:user-alice-123"
     },
     "agent:capabilities": {
@@ -44,7 +43,7 @@
     "agent:systemIntegrationAndDependencies": {
       "@type": "agent:SystemIntegration",
       "agent:dependsOn": {
-        "@id": "https://api.bh-fitness.com/firmware-service"
+        "@id": "https://api.zenith-fitness.com/firmware-service"
       }
     },
     "security:securityBinding": {

@@ -11,10 +11,10 @@
 #################################################################
 
 ex:TWComplianceAgent a agent:Agent ;
-    agent:title "Taiwan SME EUDI Wallet Compliance Agent" ;
+    agent:title "Global SME EUDI Wallet Compliance Agent" ;
     agent:version "1.0.0" ;
     agent:state agent:Active ;
-    agent:objective "Handle all EUDI Wallet interactions for a Taiwan SME entering the EU market." ;
+    agent:objective "Handle all EUDI Wallet interactions for a Global SME entering the EU market." ;
     agent:ownedBy "did:tw:company12345" .
 
 #################################################################
@@ -52,7 +52,7 @@ ex:SubmitKYC a cap:Capability ;
 
 ex:RetrieveEUDICredential a cap:Capability ;
     cap:id "retrieve-credential" ;
-    cap:description "Fetch verifiable credentials issued by Portuguese authorities." .
+    cap:description "Fetch verifiable credentials issued by EU authorities." .
 
 ex:CrossBorderFiling a cap:Capability ;
     cap:id "crossborder-filing" ;
@@ -82,13 +82,13 @@ ex:LedgerEntry1 a ledger:RuntimeLedgerRecord ;
     ledger:eventId "ledger-eu-0001" ;
     ledger:timestamp "2025-11-09T08:00:00Z"^^xsd:dateTime ;
     ledger:recordsAction ex:SubmitKYC ;
-    ledger:note "Submitted KYC to Banco de Portugal via EUDI Wallet." .
+    ledger:note "Submitted KYC to EuroBank Central via EUDI Wallet." .
 
 ex:LedgerEntry2 a ledger:RuntimeLedgerRecord ;
     ledger:eventId "ledger-eu-0002" ;
     ledger:timestamp "2025-11-09T08:30:00Z"^^xsd:dateTime ;
     ledger:recordsAction ex:RetrieveEUDICredential ;
-    ledger:note "Retrieved Verified Corporate Registration Credential from Portuguese Business Registry." .
+    ledger:note "Retrieved Verified Corporate Registration Credential from EU Business Registry." .
 
 ex:LedgerEntry3 a ledger:RuntimeLedgerRecord ;
     ledger:eventId "ledger-eu-0003" ;

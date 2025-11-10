@@ -71,9 +71,9 @@ ex:DelegateSurgicalTaskShape
 
 # --- Artifact Shapes --- 
 
-ex:UL_Safety_CertificateShape
+ex:GlobalCert_Safety_CertificateShape
     a sh:NodeShape ;
-    sh:targetNode ex:UL_Safety_Certificate ;
+    sh:targetNode ex:GlobalCert_Safety_Certificate ;
     sh:property [
         sh:path security:securityBinding ;
         sh:minCount 1 ;
@@ -81,7 +81,7 @@ ex:UL_Safety_CertificateShape
             a sh:NodeShape ;
             sh:property [
                 sh:path security:signedBy ;
-                sh:hasValue ex:UL_Certification_Agent ;
+                sh:hasValue ex:GlobalCert_Certification_Agent ;
             ]
         ]
     ] .
@@ -91,7 +91,7 @@ ex:Insurance_PolicyShape
     sh:targetNode ex:Insurance_Policy ;
     sh:property [
         sh:path ex:referencesCertificate ;
-        sh:hasValue ex:UL_Safety_Certificate ;
+        sh:hasValue ex:GlobalCert_Safety_Certificate ;
     ] ;
     sh:property [
         sh:path security:securityBinding ;
@@ -135,5 +135,5 @@ ex:SettleClaimActionShape
     ] ;
     sh:property [
         sh:path payment:payee ;
-        sh:hasValue "did:example:city-hospital" ;
+        sh:hasValue "did:example:metro-health-hospital" ;
     ] .

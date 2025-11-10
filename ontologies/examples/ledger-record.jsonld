@@ -8,7 +8,7 @@
   "action": {
     "type": "core:Action",
     "id": "action-001",
-    "description": "Queried Lufthansa API for flights from SFO to BER on 2025-12-01."
+    "description": "Queried GlobalAir API for flights from SFO to BER on 2025-12-01."
   },
   "usesCapability": "capability:findBestFlight",
   "delegation": "urn:uuid:b2c3d4e5-f6a7-8901-2345-67890abcdef1",

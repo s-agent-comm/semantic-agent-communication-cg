@@ -8,7 +8,7 @@
   ],
   "id": "https://ns.slashlife.ai/agent/examples#TWComplianceAgent",
   "type": "agent:Agent",
-  "title": "Taiwan SME EUDI Wallet Compliance Agent",
+  "title": "Global SME EUDI Wallet Compliance Agent",
   "version": "1.0.0",
   "state": "agent:Active",
   "objective": "Handle all EUDI Wallet interactions for a Taiwan SME entering the EU market.",
@@ -81,7 +81,7 @@
       "eventId": "ledger-eu-0001",
       "timestamp": "2025-11-09T08:00:00Z",
       "recordsAction": "https://ns.slashlife.ai/agent/examples#SubmitKYC",
-      "note": "Submitted KYC to Banco de Portugal via EUDI Wallet."
+      "note": "Submitted KYC to EuroBank Central via EUDI Wallet."
     },
     {
       "id": "https://ns.slashlife.ai/agent/examples#LedgerEntry2",
@@ -89,7 +89,7 @@
       "eventId": "ledger-eu-0002",
       "timestamp": "2025-11-09T08:30:00Z",
       "recordsAction": "https://ns.slashlife.ai/agent/examples#RetrieveEUDICredential",
-      "note": "Retrieved Verified Corporate Registration Credential from Portuguese Business Registry."
+      "note": "Retrieved Verified Corporate Registration Credential from EU Business Registry."
     },
     {
       "id": "https://ns.slashlife.ai/agent/examples#LedgerEntry3",

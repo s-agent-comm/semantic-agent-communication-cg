@@ -30,15 +30,15 @@ This use case uniquely highlights the ontology's application to personal, social
 -   **Ontology Mapping**:
     1.  The `:BachataDancerAgent`'s `agent:capabilities` are defined with `agent:skill` properties like "Sensual Bachata," "Leading," "Level: Advanced."
     2.  The agent's `core:Intent` is "Find a suitable Bachata event for this weekend."
-    3.  It discovers a `core:Artifact`, `:EventDetails_LatinGala`, published by an `:EventOrganizerAgent`. This artifact contains structured data about the event's theme, location, cost, etc.
+    3.  It discovers a `core:Artifact`, `:EventDetails_RhythmFest`, published by an `:EventOrganizerAgent`. This artifact contains structured data about the event's theme, location, cost, etc.
 
 ### Phase 2: Preparation - Style and Registration
 -   **Description**: After Luna decides to attend, her agent handles the logistics of getting ready.
 -   **Ontology Mapping**:
-    1.  The agent creates a new `core:Intent`: "Prepare for the Latin Gala."
-    2.  It `delegation:Delegates` a task to an external `:StyleRecommendationAgent`. The `delegation:delegationScope` is key: "Recommend an outfit for the 'Latin Gala' (theme: 'White Party'), based on my style profile (elegant, modern)."
+    1.  The agent creates a new `core:Intent`: "Prepare for the Rhythm Fest."
+    2.  It `delegation:Delegates` a task to an external `:StyleRecommendationAgent`. The `delegation:delegationScope` is key: "Recommend an outfit for the 'Rhythm Fest' (theme: 'White Party'), based on my style profile (elegant, modern)."
     3.  The style agent returns a `core:Artifact`, `:OutfitRecommendation`, with suggestions.
-    4.  Simultaneously, the `:BachataDancerAgent` `delegation:Delegates` registration to the `:EventOrganizerAgent`, with a `delegation:delegationScope` of "Register me for the Latin Gala and process payment." This involves the `payment:Payment` ontology.
+    4.  Simultaneously, the `:BachataDancerAgent` `delegation:Delegates` registration to the `:EventOrganizerAgent`, with a `delegation:delegationScope` of "Register me for the Rhythm Fest and process payment." This involves the `payment:Payment` ontology.
 
 ### Phase 3: The Event and Content Creation
 -   **Description**: Luna attends the party, enjoys dancing, and captures video clips of her best moves.
@@ -57,5 +57,5 @@ This use case uniquely highlights the ontology's application to personal, social
 -   **Ontology Mapping**:
     1.  The `:BrandSponsorAgent` (representing the shoe company) creates a `core:Intent`: "Collaborate with @Luna for a product promotion."
     2.  It sends a collaboration proposal, modeled as a `delegation:Delegation` offer, to Luna's `:BachataDancerAgent`.
-    3.  The `delegation:delegationScope` is a commercial proposition: "Create one Instagram Reel promoting our new 'Elegancia' dance shoes in exchange for a payment of $200."
+    3.  The `delegation:delegationScope` is a commercial proposition: "Create one Instagram Reel promoting our new 'Graceful Steps' dance shoes in exchange for a payment of $200."
     4.  Luna reviews the offer via her agent. Upon acceptance, a formal `contract:Contract` `Artifact` is generated, and the `payment:Payment` is processed upon completion of the promotional post. This completes the cycle of the creator economy.

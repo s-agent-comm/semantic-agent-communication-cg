@@ -14,7 +14,7 @@ Each subdirectory within `examples/` represents a distinct use case and typicall
 We encourage you to explore each example to understand how the Agent Ontology can be applied to various domains. Here are some of the key use cases currently available:
 
 ### 1. BH Treadmill IoT Control
-*   **Description**: Demonstrates how a BH Treadmill can be modeled as an agent, allowing secure delegation of control to third-party fitness applications for interactive workout sessions.
+*   **Description**: Demonstrates how a Zenith Treadmill can be modeled as an agent, allowing secure delegation of control to third-party fitness applications for interactive workout sessions.
 *   **Key Concepts**: Agent as Physical Device, Intent, Delegation, Capabilities, Security Binding, IoT Control.
 *   **Location**: `bh-treadmill-iot-control/`
 
@@ -69,7 +69,7 @@ We encourage you to explore each example to understand how the Agent Ontology ca
 *   **Location**: `supplier-verification-cross-border-payment/`
 
 ### 12. The Journey of a Smart Thermostat: From Design to Global Brand (OBM/ODM/OEM - Detailed User Story)
-*   **Description**: Illustrates the business model evolution of a Taiwanese company from OEM to ODM to OBM, showcasing dynamic shifts in capabilities, delegation, and strategic positioning.
+*   **Description**: Illustrates the business model evolution of a Global company from OEM to ODM to OBM, showcasing dynamic shifts in capabilities, delegation, and strategic positioning.
 *   **Key Concepts**: Business Model Transformation, Capability Evolution, Dynamic Delegation Scope, End-Consumer Interaction, Integrated Supply Chain.
 *   **Location**: `smart-thermostat-obm-odm-oem/`
 
@@ -84,7 +84,7 @@ We encourage you to explore each example to understand how the Agent Ontology ca
 *   **Location**: `secure-execution-attestation/`
 
 ### 15. AI Liability Insurance x UL Certification (Detailed User Story)
-*   **Description**: Models a complete ecosystem of trust for safety-critical AI, involving third-party certification (like UL), specialized liability insurance, and immutable operational data for transparent claims adjudication in a scenario with an autonomous surgical robot.
+*   **Description**: Models a complete ecosystem of trust for safety-critical AI, involving third-party certification (like GlobalCert), specialized liability insurance, and immutable operational data for transparent claims adjudication in a scenario with an autonomous surgical robot.
 *   **Key Concepts**: AI Risk Management, Third-Party Certification, Verifiable Insurance Policies, Ledger-Based Adjudication, End-to-End Trust in High-Stakes Environments.
 *   **Location**: `ai-liability-insurance-ul-certification/`
 

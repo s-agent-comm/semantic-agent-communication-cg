@@ -6,15 +6,15 @@
 @prefix agent: <https://ns.slashlife.ai/agent/agent#> .
 @prefix ex: <https://ns.slashlife.ai/agent/examples/bh-treadmill-iot-control#> .
 
-ex:BHTreadmillAgentShape
+ex:ZenithTreadmillAgentShape
     a sh:NodeShape ;
-    sh:targetNode ex:BHTreadmillAgent ;
+    sh:targetNode ex:ZenithTreadmillAgent ;
     sh:property [
         sh:path agent:hasProfile ;
-        sh:node ex:BHTreadmillAgentProfileShape ;
+        sh:node ex:ZenithTreadmillAgentProfileShape ;
     ] .
 
-ex:BHTreadmillAgentProfileShape
+ex:ZenithTreadmillAgentProfileShape
     a sh:NodeShape ;
     sh:property [
         sh:path agent:coreIdentity ;
@@ -27,7 +27,7 @@ ex:BHTreadmillAgentProfileShape
                 sh:minCount 1 ;
                 sh:maxCount 1 ;
                 sh:datatype xsd:string ;
-                sh:pattern "^did:example:bh-treadmill-SN-123456789$" ;
+                sh:pattern "^did:example:zenith-treadmill-SN-123456789$" ;
             ]
         ]
     ] ;

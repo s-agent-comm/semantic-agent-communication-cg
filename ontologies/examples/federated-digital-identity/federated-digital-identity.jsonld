@@ -39,19 +39,19 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#BerlinFinTechOnboardingAgent",
       "@type": "core:Agent",
-      "rdfs:label": "Berlin FinTech Bank Onboarding Agent",
+      "rdfs:label": "EuroTrust FinTech Bank Onboarding Agent",
       "agent:hasProfile": {
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
           "agent:did": "did:example:berlin-fintech-onboarding-agent-1",
-          "agent:title": "Berlin FinTech Bank Onboarding Agent",
+          "agent:title": "EuroTrust FinTech Bank Onboarding Agent",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
           "@type": "agent:PurposeRole",
           "agent:objective": "To securely onboard new customers, performing KYC and AML checks.",
-          "agent:owner": "did:example:berlin-fintech-bank"
+          "agent:owner": "did:example:eurotrust-fintech-bank"
         },
         "agent:capabilities": {
           "@type": "agent:CapabilityBundle",
@@ -67,13 +67,13 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#JPMynumberWalletAgent",
       "@type": "core:Agent",
-      "rdfs:label": "JP MyNumber Wallet Agent",
+      "rdfs:label": "Sakura ID Wallet Agent",
       "agent:hasProfile": {
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
           "agent:did": "did:example:jp-mynumber-wallet-agent-1",
-          "agent:title": "JP MyNumber Wallet Agent",
+          "agent:title": "Sakura ID Wallet Agent",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
@@ -94,13 +94,13 @@
     {
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#TWDIWAgent",
       "@type": "core:Agent",
-      "rdfs:label": "TWDIW Agent (Taiwan Digital Identity Wallet)",
+      "rdfs:label": "Formosa ID Wallet Agent",
       "agent:hasProfile": {
         "@type": "agent:AgentProfile",
         "agent:coreIdentity": {
           "@type": "agent:AgentIdentity",
           "agent:did": "did:example:twdiw-agent-1",
-          "agent:title": "TWDIW Agent",
+          "agent:title": "Formosa ID Wallet Agent",
           "agent:version": "1.0.0"
         },
         "agent:purposeAndRole": {
@@ -122,14 +122,14 @@
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#KenjiOnboardingIntent",
       "@type": "core:Intent",
       "rdfs:label": "Kenji's Intent to Open Investment Account",
-      "intent:objective": "Open a high-yield investment account with Berlin FinTech Bank.",
+      "intent:objective": "Open a high-yield investment account with EuroTrust FinTech Bank.",
       "intent:input": "Kenji's personal financial goals and investment preferences.",
       "intent:output": "Activated investment account with Berlin FinTech Bank."
     },
     {
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#KYCRequirementList",
       "@type": "core:Artifact",
-      "rdfs:label": "Berlin FinTech Bank KYC Requirement List",
+      "rdfs:label": "EuroTrust FinTech Bank KYC Requirement List",
       "core:description": "Required VCs: Primary Identity (e.g., Passport), Proof of Residency, Tax Identification Number. Must be EUDI-compliant."
     },
     {
@@ -162,7 +162,7 @@
       "security:securityBinding": {
         "@type": "security:SecurityBinding",
         "security:cryptographicBinding": "JWS",
-        "security:trustModel": "JP-Government-PKI"
+        "security:trustModel": "Sakura-Government-PKI"
       }
     },
     {
@@ -173,7 +173,7 @@
       "security:securityBinding": {
         "@type": "security:SecurityBinding",
         "security:cryptographicBinding": "JWS",
-        "security:trustModel": "TW-Government-PKI"
+        "security:trustModel": "Formosa-Government-PKI"
       }
     },
     {
@@ -203,11 +203,11 @@
       "@type": "execution-context:ExecutionContext",
       "rdfs:label": "Global KYC Execution Context",
       "execution-context:trustAnchors": [
-        "https://pki.europa.eu/",
-        "https://pki.japan.go.jp/",
-        "https://pki.taiwan.gov.tw/"
+        "https://pki.eurotrust.eu/",
+        "https://pki.sakura.jp/",
+        "https://pki.formosa.tw/"
       ],
-      "execution-context:policy": "EU-Japan-Taiwan Data Exchange Agreement for Digital Identity"
+      "execution-context:policy": "Global Digital Identity Exchange Agreement"
     },
     {
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#SubmitEUDIVPAction",
@@ -224,7 +224,7 @@
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#SubmissionConfirmation",
       "@type": "core:Artifact",
       "rdfs:label": "VP Submission Confirmation",
-      "core:description": "Confirmation of successful submission of EUDI-Compatible VP to Berlin FinTech Bank."
+      "core:description": "Confirmation of successful submission of EUDI-Compatible VP to EuroTrust FinTech Bank."
     },
     {
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#VerifyEUDIVPAction",
@@ -241,7 +241,7 @@
       "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#InvestmentAccountDetails",
       "@type": "core:Artifact",
       "rdfs:label": "Investment Account Details",
-      "core:description": "Kenji's new investment account successfully opened with Berlin FinTech Bank. Account ID: DE1234567890."
+      "core:description": "Kenji's new investment account successfully opened with EuroTrust FinTech Bank. Account ID: DE1234567890."
     }
   ]
 }
