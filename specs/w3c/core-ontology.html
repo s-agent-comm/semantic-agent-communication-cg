@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AI Agent Ontology - Core Specification</title>
+    <meta charset="utf-8">
+    <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
+    <meta name=respecConfig content='{
+      "specStatus": "CG-DRAFT",
+      "shortName": "agent-ontology-core",
+      "editors": [
+        {
+          "name": "SlashLife AI",
+          "url": "https://slashlife.ai"
+        }
+      ],
+      "github": "https://github.com/slashlifeai/agent-ontology",
+      "group": "sacg",
+      "xref": "web-platform"
+    }'>
+  </head>
+  <body>
+    <section id="abstract">
+      This document provides the formal specification for the Core module of the AI Agent Ontology. The Core ontology defines the foundational, high-level concepts that form the basis for all other modules in this project. It establishes the primary classes of entities and the fundamental relationships between them.
+    </section>
+
+    <section id="sotd">
+      <!-- Status of This Document -->
+    </section>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        The namespace for the Core Ontology is <code>https://ns.slashlife.ai/agent/core#</code>. The recommended prefix is <code>core</code>.
+      </p>
+    </section>
+
+    <section id="core-classes">
+      <h2>Core Classes</h2>
+      <p>This section details the primary classes defined in the Core Ontology.</p>
+
+      <section id="agent-class">
+        <h3>Agent</h3>
+        <ul>
+          <li><strong>URI:</strong> <code>core:Agent</code></li>
+          <li><strong>Subclass Of:</strong> <code>core:AgentEntity</code></li>
+          <li><strong>Definition:</strong> An autonomous actor capable of perceiving, interpreting, or executing actions within a delegated semantic environment.</li>
+          <li><strong>Key Properties:</strong>
+            <ul>
+              <li><code>core:hasIntent</code>: Associates an Agent with its intended objective or semantic purpose.</li>
+              <li><code>core:hasCapability</code>: Associates an Agent with a Capability it is able to perform.</li>
+              <li><code>core:executesAction</code>: Associates an Agent with an Action it performs.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="capability-class">
+        <h3>Capability</h3>
+        <ul>
+          <li><strong>URI:</strong> <code>core:Capability</code></li>
+          <li><strong>Definition:</strong> A describable functional competence or operational capacity of an Agent.</li>
+          <li><strong>Description:</strong> This class represents what an agent <em>can do</em>. Capabilities can be simple (e.g., "send an email") or complex (e.g., "manage a supply chain"). They are the units of authority that are granted in a Delegation.</li>
+        </ul>
+      </section>
+
+      <section id="delegation-class">
+        <h3>Delegation</h3>
+        <ul>
+          <li><strong>URI:</strong> <code>core:Delegation</code></li>
+          <li><strong>Definition:</strong> A structured semantic relation where one Agent authorizes another to act within a defined scope.</li>
+          <li><strong>Key Properties:</strong>
+            <ul>
+              <li><code>core:delegatedBy</code>: Indicates the Agent granting delegated authority.</li>
+              <li><code>core:delegatesTo</code>: Indicates the Agent receiving delegated authority.</li>
+              <li><code>core:delegationScope</code>: Specifies the scope of allowed capabilities within a Delegation relation.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="action-class">
+        <h3>Action</h3>
+        <ul>
+          <li><strong>URI:</strong> <code>core:Action</code></li>
+          <li><strong>Definition:</strong> A concrete execution event initiated by an Agent, producing observable or verifiable consequences.</li>
+          <li><strong>Description:</strong> An Action is a record of something that <em>happened</em>. It is the result of an Agent exercising a Capability.</li>
+          <li><strong>Key Properties:</strong>
+            <ul>
+              <li><code>core:producesArtifact</code>: Specifies the Artifact produced by an Action.</li>
+              <li><code>core:recordedIn</code>: Links an Action to its verifiable trace record (<code>core:TraceEvent</code>).</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="other-core-classes">
+        <h3>Other Core Classes</h3>
+        <ul>
+            <li><strong><code>core:AgentEntity</code></strong>: A general semantic entity participating in agent communication, delegation, or execution. It is the superclass for <code>core:Agent</code>.</li>
+            <li><strong><code>core:Intent</code></strong>: A semantic expression of purpose, objective, or expected action outcome.</li>
+            <li><strong><code>core:ExecutionContext</code></strong>: A contextual frame describing conditions, trust anchors, or constraints associated with an Agent action.</li>
+            <li><strong><code>core:Artifact</code></strong>: A produced output or result generated through agent execution.</li>
+            <li><strong><code>core:TraceEvent</code></strong>: A verifiable record linking an Agent, an Action, and contextual constraints.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="core-properties">
+        <h2>Core Properties</h2>
+        <p>This section details the primary object properties that connect the core classes.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Domain</th>
+                    <th>Range</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>core:hasIntent</code></td>
+                    <td><code>core:Agent</code></td>
+                    <td><code>core:Intent</code></td>
+                    <td>Associates an Agent with its intended objective.</td>
+                </tr>
+                <tr>
+                    <td><code>core:hasCapability</code></td>
+                    <td><code>core:Agent</code></td>
+                    <td><code>core:Capability</code></td>
+                    <td>Links an Agent to a Capability it can perform.</td>
+                </tr>
+                <tr>
+                    <td><code>core:delegatedBy</code></td>
+                    <td><code>core:Delegation</code></td>
+                    <td><code>core:Agent</code></td>
+                    <td>The Agent granting authority.</td>
+                </tr>
+                <tr>
+                    <td><code>core:delegatesTo</code></td>
+                    <td><code>core:Delegation</code></td>
+                    <td><code>core:Agent</code></td>
+                    <td>The Agent receiving authority.</td>
+                </tr>
+                <tr>
+                    <td><code>core:delegationScope</code></td>
+                    <td><code>core:Delegation</code></td>
+                    <td><code>core:Capability</code></td>
+                    <td>The scope of capabilities allowed in a Delegation.</td>
+                </tr>
+                <tr>
+                    <td><code>core:executesAction</code></td>
+                    <td><code>core:Agent</code></td>
+                    <td><code>core:Action</code></td>
+                    <td>Associates an Agent with an Action it performs.</td>
+                </tr>
+                <tr>
+                    <td><code>core:producesArtifact</code></td>
+                    <td><code>core:Action</code></td>
+                    <td><code>core:Artifact</code></td>
+                    <td>The Artifact produced by an Action.</td>
+                </tr>
+                <tr>
+                    <td><code>core:recordedIn</code></td>
+                    <td><code>core:Action</code></td>
+                    <td><code>core:TraceEvent</code></td>
+                    <td>Links an Action to its trace record.</td>
+                </tr>
+                <tr>
+                    <td><code>core:contextOf</code></td>
+                    <td><code>core:ExecutionContext</code></td>
+                    <td><code>core:Action</code></td>
+                    <td>The context that applies to a specific Action.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+  </body>
+</html>
