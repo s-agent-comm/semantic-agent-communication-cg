@@ -30,6 +30,12 @@ In this view, an agent is defined not by its internal composition, but by its **
 
 This definition is **radically implementation-agnostic**. An agent can be an LLM, a simple Python script, a complex enterprise system, or even a human participating through a compliant interface. As long as an entity exhibits these three properties within our framework, it *is* an agent. This ensures our standard is a future-proof foundation for any form of digital autonomous existence.
 
+### Relationship to Semantic Web: Focus on Interaction Semantics, Not General Knowledge
+
+Our ontology leverages foundational **Semantic Web technologies** such as RDF (Resource Description Framework), OWL (Web Ontology Language), and SHACL (Shapes Constraint Language) to formally define its concepts. The Semantic Web is highly relevant for representing and reasoning about an agent's general **knowledge** about the world (e.g., facts, relationships between entities).
+
+However, it is crucial to clarify that **this project does not deal with general agent knowledge representation or reasoning about the world's facts.** Our focus is exclusively on **interaction semantics**: how agents communicate, delegate authority, and establish accountability in a verifiable manner. We provide the language for *how* agents interact, not *what* they know about the world or *how* they reason internally.
+
 ### The "Content," Not the "Container"
 
 A critical principle of this ontology is the separation of concerns. It standardizes the **semantic payload**—the meaning of the message itself—not the transport protocol used to send it.
