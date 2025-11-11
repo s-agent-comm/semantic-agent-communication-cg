@@ -131,18 +131,18 @@ This flexibility is a core feature, allowing the ontology to bridge fully automa
 
 ### 4.4. Enabling Online Arbitration and Self-Regulation
 
-Beyond mere traceability, this ontology lays the groundwork for advanced forms of **online arbitration and system self-regulation**.
+Beyond mere traceability, this ontology provides a foundational framework that *enables* advanced forms of **online arbitration and system self-regulation**.
 
 Disputes in multi-agent systems often boil down to disagreements over "facts" (what happened) and "rules" (what should have happened). Our ontology directly addresses both:
 
 *   **Objective Facts:** The immutable `ExecutionRecord`s, `Delegation`s, and `Intent`s stored on the ledger provide a verifiable, machine-readable record of events. These serve as the undeniable "evidence."
 *   **Formal Rules:** The accompanying SHACL shapes (as seen in our `tests/` directory) define the expected constraints and behaviors for agents. These act as the "laws" or "contractual terms" that agents are expected to follow.
 
-By feeding these objective facts and formal rules into automated reasoning engines or smart contracts, the system gains the capability to:
+By feeding these objective facts and formal rules into automated reasoning engines or smart contracts, the system *can be designed to*:
 
 *   **Automatically Assess Compliance:** Determine if an agent's actions adhered to its delegated authority and stated intent.
 *   **Identify Breaches:** Flag instances where rules were violated or expectations were not met.
-*   **Trigger Automated Responses:** For predefined scenarios, the system can initiate self-regulatory actions, such as automatically adjusting reputation scores, triggering penalties, revoking further delegation rights, or reassigning tasks—all without direct human intervention.
+*   **Trigger Automated Responses:** For predefined scenarios, the system *can be configured to* initiate self-regulatory actions, such as automatically adjusting reputation scores, triggering penalties, revoking further delegation rights, or reassigning tasks—all without direct human intervention.
 
 This capability is crucial for building truly autonomous and trustworthy AI ecosystems, where disputes can be resolved efficiently and transparently, fostering greater confidence in agent interactions.
 
