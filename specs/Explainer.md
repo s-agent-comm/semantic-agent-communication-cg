@@ -451,3 +451,5 @@ In this view:
 - The ontology defines the semantic instructions.
 - Implementations may compile these instructions into an intermediate representation (IR).
 - The IR may then be lowered into optimized compute graphs executed on GPUs or other accelerators.
+
+This CG does not define any IR, compiler pipeline, optimization strategy, or execution semantics. Any mapping into IR or hardware is an implementation choice and explicitly not part of the standard
