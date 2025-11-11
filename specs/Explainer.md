@@ -30,6 +30,10 @@ In this view, an agent is defined not by its internal composition, but by its **
 
 This definition is **radically implementation-agnostic**. An agent can be an LLM, a simple Python script, a complex enterprise system, or even a human participating through a compliant interface. As long as an entity exhibits these three properties within our framework, it *is* an agent. This ensures our standard is a future-proof foundation for any form of digital autonomous existence.
 
+#### Extending the Definition to Collective Agents
+
+Crucially, this abstract definition of an agent is not limited to individuals. A collective entity—such as a legal entity, a DAO, a web community, or a fan club—can also be modeled as a single agent if it exhibits the same properties of interactivity, autonomy, and adaptability from an external viewpoint. A communication model that cannot represent these collective structures is insufficient for supporting large-scale collective intelligence or consensus formation. These diverse structures require a semantic layer that generalizes across radically different governance forms, which our ontology provides by focusing on observable communicative acts rather than prescribing internal composition.
+
 ### Relationship to Semantic Web: Focus on Interaction Semantics, Not General Knowledge
 
 Our ontology leverages foundational **Semantic Web technologies** such as RDF (Resource Description Framework), OWL (Web Ontology Language), and SHACL (Shapes Constraint Language) to formally define its concepts. The Semantic Web is highly relevant for representing and reasoning about an agent's general **knowledge** about the world (e.g., facts, relationships between entities).
