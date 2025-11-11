@@ -101,6 +101,23 @@ By feeding these objective facts and formal rules into automated reasoning engin
 
 This capability is crucial for building truly autonomous and trustworthy AI ecosystems, where disputes can be resolved efficiently and transparently, fostering greater confidence in agent interactions.
 
+### 4.5. Anchoring Digital Trust to Physical Reality: Hardware Attestation
+
+While cryptographic signatures and verifiable credentials provide a robust foundation for digital trust, a fundamental question remains: how do we trust the *environment* where an agent's private keys are managed and its code is executed? This is where **hardware attestation** becomes critical, providing a physical anchor for digital trust.
+
+Our ontology is designed to integrate with hardware roots of trust (e.g., Trusted Platform Modules (TPMs), Trusted Execution Environments (TEEs) like Intel SGX or ARM TrustZone). These technologies can generate cryptographically verifiable reports (attestations) that prove:
+
+*   **Platform Genuineness:** The underlying hardware is authentic and untampered.
+*   **Code Integrity:** The specific code being executed has not been altered.
+*   **Execution Isolation:** The code is running in a secure, isolated environment, protected from external interference.
+
+Through modules like `SecurityBinding` and `ExecutionContext`, our ontology enables:
+
+*   **Identity Binding:** An agent's Decentralized Identifier (DID) can be cryptographically bound to a hardware attestation report, asserting that its private keys are managed within a verified secure enclave.
+*   **Execution Verification:** `Delegation`s or `Intent`s can mandate execution within an attested TEE, and the resulting `ExecutionRecord` can include the attestation report as verifiable proof of secure execution.
+
+This integration bridges the gap between the digital and physical worlds. It transforms our logical chain of responsibility into a **trust chain with verifiable physical endpoints**, addressing critical trust challenges in sensitive applications such as IoT device control, confidential AI inference, and high-value financial transactions. It allows us to move beyond merely trusting a digital signature to trusting the secure physical environment that generated it.
+
 ## 5. Who Is This For?
 
 *   **OS & Platform Developers:** To build next-generation "agent-native" operating systems.
