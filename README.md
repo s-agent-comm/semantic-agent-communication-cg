@@ -65,6 +65,25 @@ The repository includes a suite of [SHACL shapes](./tests/) to validate data cre
 
 ---
 
+## Examples and Use Cases
+
+To understand the practical application of this ontology, we provide two key examples in the [`ontologies/examples/`](./ontologies/examples/) directory.
+
+### 1. W3C CG Auto-Operations Agent (Theoretical Blueprint)
+
+-   **Directory:** [`w3c-cg-auto-operations-agent/`](./ontologies/examples/w3c-cg-auto-operations-agent/)
+-   **What it is:** A comprehensive, real-world use case demonstrating how to model a sophisticated agent for managing a W3C Community Group. It serves as a theoretical blueprint for designing robust, auditable, and secure administrative agents.
+-   **Key Concepts Shown:** This example covers the full spectrum of the ontology, including detailed agent profiles, multi-step actions, delegation of authority, and security bindings for signing artifacts.
+
+### 2. Minimal Runnable CLI Agent (Practical Prototype)
+
+-   **Directory:** [`minimal_agent_cli/`](./ontologies/examples/minimal_agent_cli/)
+-   **What it is:** A minimal, hands-on, and **runnable** Python example that demonstrates the core feedback loop of a governed autonomous agent.
+-   **How it works:** It connects the static ontology definitions (Agent Profile, Delegation) with a dynamic Large Language Model (LLM), allowing you to give it natural language commands via a command-line interface (CLI). The agent then uses the ontology as its "world model" to reason about your intent, decide on an action, and execute it.
+-   **Purpose:** This example is designed to give developers a tangible starting point for building their own agents, showcasing the "last mile" of how the ontology comes to life when paired with an LLM.
+
+---
+
 ## Practical Application: Managing this Project with the Ontology
 
 The "W3C CG Auto-Operations Agent" use case, detailed in [`ontologies/examples/w3c-cg-auto-operations-agent/README.md`](./ontologies/examples/w3c-cg-auto-operations-agent/README.md), serves as a powerful demonstration of how this Agent Ontology can be applied to manage a community group or, indeed, this very project itself.
