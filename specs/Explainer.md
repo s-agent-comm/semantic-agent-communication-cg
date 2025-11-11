@@ -118,7 +118,58 @@ Through modules like `SecurityBinding` and `ExecutionContext`, our ontology enab
 
 This integration bridges the gap between the digital and physical worlds. It transforms our logical chain of responsibility into a **trust chain with verifiable physical endpoints**, addressing critical trust challenges in sensitive applications such as IoT device control, confidential AI inference, and high-value financial transactions. It allows us to move beyond merely trusting a digital signature to trusting the secure physical environment that generated it.
 
-## 5. Who Is This For?
+## 5. The Unified Narrative: Context, Communication, and Contract as One (Optional Modeling)
+
+At the heart of this ontology lies the concept of a **Unified Narrative**. This powerful conceptual model offers an *optional* yet highly effective way to structure and understand agent interactions, replacing the need for separate `Session`, `Thread`, or `Message` entities. While the core ontology provides the atomic data of `CommunicativeAct`s, the decision to model and process these acts as a coherent `Narrative` is left to the implementing agents or systems. This ensures the ontology remains neutral regarding specific context-processing or state-derivation methodologies.
+
+A `Narrative` is an **immutable, append-only, ordered log of Communicative Acts**. It represents a complete story, from initial intent to final outcome, encompassing all formal contracts, informal negotiations, and execution records.
+
+### 5.1. Communicative Acts: The Events of a Narrative
+
+Within a `Narrative`, every interaction is a `CommunicativeAct`. This includes:
+
+*   **`Intent`**: The initial declaration of purpose or goal.
+*   **`Delegation`**: The formal transfer of authority and responsibility.
+*   **`ExecutionRecord`**: The verifiable proof of an action taken.
+*   **`Query` / `Report` / `Accept` / `Reject`**: The more informal, yet crucial, steps of negotiation and clarification.
+
+Each `CommunicativeAct` is a signed, timestamped event appended to the `Narrative`.
+
+### 5.2. Emergent State and Absolute Traceability
+
+In this model:
+
+*   **State is Emergent:** A `Narrative` itself has no explicit `status` field. Its current state (e.g., `active`, `completed`, `disputed`) is dynamically *derived* by analyzing the sequence and type of `CommunicativeAct`s within its log. This aligns with an Event Sourcing architectural pattern, providing inherent robustness and auditability.
+*   **Context-Complete Traceability:** By replaying the `Narrative`'s history, one can reconstruct the entire context of any `Delegation` or `ExecutionRecord`. This includes all prior negotiations, clarifications, and agreements, providing an unparalleled level of transparency and understanding for both human and AI agents.
+
+### 5.3. The `Narrative-ID`: The Story's Name
+
+Each `Narrative` is identified by a unique `Narrative-ID`. This ID serves as:
+
+*   **A Machine-Readable Context Boundary:** All `CommunicativeAct`s sharing the same `Narrative-ID` belong to the same logical interaction context.
+*   **A Human/AI-Comprehensible Anchor:** Unlike a generic `sessionID`, a meaningful `Narrative-ID` (e.g., "Project-Phoenix-Q3-Launch") provides immediate cognitive context, enabling AI to make more informed decisions and humans to quickly grasp the purpose of an interaction.
+
+This Unified Narrative model transforms the system from a transaction processor into a **decentralized, verifiable, shared narrative machine**, where the system itself is a living, evolving story of interactions.
+
+### 5.4. Theoretical Underpinnings: Speech Act Theory (Optional Extension)
+
+While the core ontology maintains a minimalist design, its `CommunicativeAct` concept finds a profound theoretical alignment with **Speech Act Theory**, a philosophical framework that posits that language is not merely descriptive but performative—we "do things with words."
+
+In this view, every `CommunicativeAct` within a `Narrative` can be understood as a digital **illocutionary act** (the intended action performed by uttering something). For instance:
+
+*   An `Intent` or `Delegate` act functions as a **Directive** (attempting to get another agent to do something).
+*   An `Accept` or `Ack` act functions as a **Commissive** (committing the agent to a future course of action).
+*   A `Report` or `Attest` act functions as an **Assertive** (stating a fact or belief).
+*   A `Complete` act (within an `ExecutionRecord`) can function as a **Declaration** (changing the state of the world by its very utterance).
+
+**This theoretical alignment is an optional extension, not a mandatory encoding within the core ontology.** The ontology provides the structured data for these acts, while Speech Act Theory offers a powerful conceptual lens for:
+
+*   **Deeper AI Reasoning:** Enabling AI agents to understand the illocutionary force behind communications, leading to more sophisticated negotiation, planning, and social intelligence.
+*   **Enhanced Human-AI Collaboration:** Bridging the gap between human social interaction patterns and machine-interpretable actions, fostering more intuitive and trustworthy partnerships.
+
+By understanding `CommunicativeAct`s through this lens, the `Narrative` becomes more than a log; it becomes a **verifiable script of digital social reality**, where each act carries specific force and consequence.
+
+## 6. Who Is This For?
 
 *   **OS & Platform Developers:** To build next-generation "agent-native" operating systems.
 *   **AI Application Developers:** To create interoperable agents that can collaborate across a rich ecosystem.

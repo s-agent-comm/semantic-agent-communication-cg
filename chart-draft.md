@@ -32,15 +32,14 @@ Structures describing:
 - Rights to further delegate
 - Constraints and conditions
 
-#### 2.3 Agent Traceability Primitives
-Minimal primitives for:
-- Action IDs
-- DID linkage (optional)
-- Verifiable audit information
-- State transitions
+#### 2.3 Unified Narrative Primitives
+A minimal vocabulary for an immutable, append-only, ordered log of `CommunicativeAct`s, forming a coherent `Narrative`:
+- `Narrative-ID` (for context boundary)
+- `CommunicativeAct` types (e.g., `Intent`, `Delegate`, `Execute`, `Query`, `Report`, `Accept`, `Reject`)
+- Verifiable audit information (signed, timestamped acts)
 
-#### 2.4 Message Exchange Schema
-A runtime-agnostic schema defining:
+#### 2.4 Communicative Act Schema
+A runtime-agnostic schema defining the structure of `CommunicativeAct`s within a `Narrative`:
 - Agent-to-agent communication
 - Human-to-agent interface
 - Multi-model interoperability
@@ -77,7 +76,7 @@ These areas are implementation-dependent and should remain flexible for regional
 The Community Group intends to publish:
 
 1.  **Semantic Delegation Ontology v1.0:** Published in Turtle and JSON-LD.
-2.  **Agent Communication Schema:** A model-neutral minimal schema describing intent, delegation, state, and safety.
+2.  **Communicative Act Schema:** A model-neutral minimal schema describing `CommunicativeAct`s within a `Narrative`, intent, delegation, and safety.
 3.  **Safety & Responsibility Notes:** A set of implementation and governance notes for traceability, responsibility boundaries, and safe delegation patterns.
 4.  **Interoperability Best Practices:** Guidelines for how agent runtimes, OS-level systems, and model providers can adopt the minimum schema.
 
