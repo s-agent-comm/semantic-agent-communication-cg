@@ -4,6 +4,8 @@
 
 This draft repository contains the formal ontology for AI Agent interoperability, security, and communication, developed as part of the **W3C Agent Semantic Communication Community Group** work. It provides a machine-readable, logically consistent framework for defining agents, their capabilities, and the rules governing their interactions.
 
+This CG defines the semantic meaning of agent interactions, not the transport, execution, or reasoning mechanisms used to process them.
+
 ## Vision and Goals
 
 Our vision is to create a universal standard for safe and effective semantic communication among AI agents. This ontology serves as the foundational layer for a future where agents can securely delegate tasks, exchange value, and collaborate across different platforms and ecosystems.
