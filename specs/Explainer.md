@@ -268,7 +268,21 @@ An ISA (like x86 or ARM) provides a stable abstraction layer between software an
 
 This stable abstraction layer decouples the "internal thought process" of an agent from its "external social behavior," unlocking massive innovation potential for the entire ecosystem.
 
-## 7. Who Is This For?
+## 7. Philosophical Foundation: A Framework for Computable Meaning
+
+The ultimate philosophical underpinning of this ontology can be understood through the lens of Ludwig Wittgenstein's later work on **"language-games."** Wittgenstein argued that meaning is not inherent but arises from *use* within a specific, rule-bound context or "game." Our ontology provides a formal framework to instantiate these games in the digital realm.
+
+In this powerful analogy:
+
+*   **A `Narrative` is a Language-Game:** Each `Narrative` instance, with its specific participants and goals, constitutes a distinct, bounded language-game.
+*   **The `Narrative-ID` defines the "World":** The `Narrative-ID` (e.g., `"Q3-Financial-Audit"`) establishes the "form of life" or the specific world in which the game is played. The meaning of an action within this game is entirely dependent on this context.
+*   **A `CommunicativeAct` is a Move in the Game:** Each `Intent`, `Delegate`, or `Query` is a meaningful, rule-bound move made by a player (an agent) within that specific game.
+*   **SHACL Shapes are the Rules:** The SHACL shapes associated with a `Narrative` define the explicit rules of that particular game—what constitutes a valid move.
+*   **The Core Ontology is the Toolbox:** The ontology itself is not a single game but the fundamental "toolbox" providing the universal components (`CommunicativeAct` types, structures) that agents can use to construct and play an infinite variety of language-games.
+
+This framework does not impose a universal meaning. Instead, it provides a **computable framework for meaning generation**, allowing autonomous agents to collaboratively create shared, verifiable, and context-dependent worlds of meaning.
+
+## 8. Who Is This For?
 
 *   **OS & Platform Developers:** To build next-generation "agent-native" operating systems.
 *   **AI Application Developers:** To create interoperable agents that can collaborate across a rich ecosystem.
