@@ -64,20 +64,14 @@ classDiagram
 
     Intent "1" -- "*" Task : IntentAlignsWithTask
 
-    note for Intent
-        Semantic expression of purpose.
-    end
-    note for Task
-        Well-defined action unit.
-    end
-    note for Capability
-        Functional competence.
-    end
-    note for Delegation
-        Structured transfer of authority.
-    end
-    note for Action
-        Concrete execution event.
-    end
+    note for Intent "Semantic expression of purpose."
+
+    note for Task "Well-defined action unit."
+    
+    note for Capability "Functional competence."
+    
+    note for Delegation "Structured transfer of authority."
+    
+    note for Action "Concrete execution event."
 
 ```
