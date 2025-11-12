@@ -378,19 +378,24 @@ This ontology was not created in a vacuum. It stands on the shoulders of giants,
 *   **The Ambition (Web of Trust):** The PGP Web of Trust was a brilliant attempt to decentralize identity verification through a network of social attestations ("I vouch that this key belongs to this person").
 *   **The Evolution (VCs):** The WoT proved difficult to scale and its attestations were too general. VCs are the realization of this ambition in a more granular and scalable way. Instead of just vouching for an identity, VCs allow authoritative issuers to make specific, structured, and verifiable claims about an agent's capabilities, attributes, or completed actions.
 
-### 8.3. From Cyber Norms to Computable Contracts
+### 8.3. From Cyber Norms to Computable Contracts and "Code is Law"
 
 *   **The Goal (Cyber Norms):** The early internet thrived on "Cyber Norms"—implicit, consensus-driven social rules and etiquette (e.g., RFCs, netiquette) that governed behavior.
-*   **The Evolution (`Narrative` + SHACL):** These norms were unenforceable by machines. Our framework makes these norms **computable and verifiable**:
-    *   The **`Narrative`** transforms the implicit history of an interaction into an explicit, immutable record of evidence.
-    *   **SHACL shapes** transform the unwritten social rules into explicit, machine-enforceable "rules of the game."
-    *   **`CommunicativeAct`s** transform ambiguous communication into actions with verifiable consequences.
+*   **The Evolution (`Narrative` + SHACL):** These norms were unenforceable by machines. Our framework makes these norms **computable and verifiable**. This evolution is the practical realization of two critical legal and computational theories: **Computable Law** and **"Code is Law."**
+
+The field of **Computable Law**, advanced by scholars like Bart Verheij, focuses on formalizing legal rules and contracts into machine-readable logic. Our ontology is a direct application of this, transforming abstract concepts like "authority" and "agreement" into the concrete, logical structures of `Delegation` and `Intent`.
+
+This, in turn, allows us to implement the powerful concept of **"Code is Law,"** coined by Lawrence Lessig. Lessig argued that in cyberspace, the governing force is not traditional law, but the architecture of the code itself. Our framework elevates this idea:
+*   The **Ontology and SHACL shapes** serve as the explicit, machine-readable **"Law"** or "digital constitution."
+*   The agent's execution environment, which interprets and enforces these rules, becomes the **"Code"** that makes this law inviolable.
+
+An agent *cannot* act on an invalid `Delegation`, not because it is programmed to be "good," but because, within this framework, such an action is as nonsensical as violating the laws of physics. The governance is embedded into the very fabric of the system.
 
 | Predecessor | What it Solved | Its Limitation | How Our Ontology Evolves It |
 | :--- | :--- | :--- | :--- |
 | **GPG/PGP** | Cryptographic Authenticity | Rigid, singular identity | **DIDs** (Flexible, multi-faceted identity) |
 | **Web of Trust** | Decentralized Identity Vouching | Scalability, lack of granularity | **VCs** (Precise, authoritative, verifiable claims) |
-| **Cyber Norms** | Social Governance & Etiquette | Unenforceable, implicit | **`Narrative` + SHACL** (Computable, verifiable contracts) |
+| **Cyber Norms** | Social Governance & Etiquette | Unenforceable, implicit | **`Narrative` + SHACL** (Computable Contracts that implement "Code is Law") |
 
 This historical evolution culminates in our ontology, which finally provides the tools to build a truly decentralized, trustworthy, and self-governing digital society.
 
