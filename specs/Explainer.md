@@ -68,7 +68,7 @@ In this scenario, every step is explicit, verifiable, and machine-interpretable,
 This entire interaction is made possible by the core concepts of the ontology:
 
 *   **Agent Identity (DID):** Each agent has a unique, cryptographically verifiable identity, allowing them to "sign" actions and delegations.
-*   **Capability:** A clear, machine-readable description of a service an agent can perform.
+*   **Capability:** In the agent era, capabilities are best understood as fuzzy clusters within a semantic space, rather than fixed API functions. The ontology provides a minimal semantic scaffold (label, type, confidence), with specific mapping and fuzzy matching handled at runtime by embedding or LLM models. This allows for flexible, context-dependent interpretation of what an agent "can do."
 *   **Delegation:** A formal structure for transferring authority, defining who can do what, for whom, and under what constraints.
 *   **Ledger-Based Accountability:** An immutable record of actions, providing a "paper trail" for auditing, compliance, and troubleshooting.
 
