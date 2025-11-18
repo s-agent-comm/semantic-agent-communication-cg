@@ -38,7 +38,7 @@ RDF/OWL vocabularies, JSON-LD contexts, SHACL shapes that express the above conc
 An Interface Description Language generated from the core ontology to facilitate code generation. The scope includes defining the language and producing a reference implementation of an AgentIDL compiler.
 
 #### 2.8 Knowledge Representation Technology Bridge for Agent Memory
-Defining the use of knowledge representation technologies as a bridge for an Agent's internal memory and communication.
+Defining the AgentIDL interfaces and serialization processes for integrating **stateful, version-controlled** knowledge representation technologies (e.g., GraphDBs, systems supporting version control like Git for knowledge artifacts) as a bridge for an Agent's internal memory and communication. **Note: Stateless memory solutions like Vector Databases are explicitly out of scope, as they do not support the cognitive memory requirements for agents.**
 
 **Note:** This group focuses exclusively on the **semantic payload** of a communication. It does not define transport protocols (e.g., TCP/IP, HTTP), agent implementation details (e.g., LLMs, internal reasoning models), or specific A2A communication patterns. The defined ontology represents the "content of the message," not the "envelope" or the "delivery mechanism."
 
