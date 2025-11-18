@@ -17,6 +17,10 @@ This is a semantic abstraction—no blockchain or specific implementation techno
 Minimal normative requirements for interpreting CommunicativeActs, Delegations, and other semantic elements in a consistent manner across implementations.
 6. Machine-Readable Ontology Artifacts
 RDF/OWL vocabularies, JSON-LD contexts, SHACL shapes that express the above concepts in a formally verifiable way.
+7. AgentIDL (WebIDL extension)
+An Interface Description Language generated from the core ontology to facilitate code generation. The scope includes defining the language and producing a reference implementation of an AgentIDL compiler.
+8. Knowledge Representation Technology Bridge for Agent Memory
+Defining the use of knowledge representation technologies as a bridge for an Agent's internal memory and communication.
 
 ---
 

@@ -67,14 +67,14 @@ In this scenario, every step is explicit, verifiable, and machine-interpretable,
 
 This entire interaction is made possible by the core concepts of the ontology:
 
-*   **Agent Identity (DID):** Each agent has a unique, cryptographically verifiable identity, allowing them to "sign" actions and delegations.
+*   **Agent Identity (W3C DID):** Each agent has a unique, cryptographically verifiable identity based on the W3C DID standard, allowing them to "sign" actions and delegations.
 *   **Capability:** In the agent era, capabilities are a two-tiered construct. A `cap:Capability` provides a high-level, declarative, natural language description of what an agent *can do*, including a `cap:capabilityExpression` for semantic matching. This `cap:Capability` is composed of one or more `cap:Skill`s, which represent atomic, machine-executable functions or API calls with defined `cap:Parameter`s. This separation allows for flexible, context-dependent interpretation of an agent's abilities while providing concrete, auditable execution paths.
 *   **Delegation:** A formal structure for transferring authority, defining who can do what, for whom, and under what constraints.
 *   **Ledger-Based Accountability:** An immutable record of actions, providing a "paper trail" for auditing, compliance, and troubleshooting.
 
-### The Role of Verifiable Credentials (VCs): The Engine of Trust
+### The Role of W3C Verifiable Credentials (VCs): The Engine of Trust
 
-If DIDs are the system's "identity numbers" and `Narrative`s are the "case files," then Verifiable Credentials (VCs) are the **official certificates, licenses, and authorization letters**. VCs are the core mechanism that transforms mere claims into verifiable facts, playing four crucial roles:
+If W3C DIDs are the system's "identity numbers" and `Narrative`s are the "case files," then W3C Verifiable Credentials (VCs) are the **official certificates, licenses, and authorization letters**. VCs are the core mechanism that transforms mere claims into verifiable facts, playing four crucial roles:
 
 **1. Proof of Capability and Attributes:** VCs prove an agent's qualifications *before* an interaction begins.
 *   **How it works:** An authoritative issuer (e.g., a university, a professional association) issues a VC to an agent's DID, containing a claim like `"isLicensedAccountant": true`.
@@ -256,7 +256,7 @@ The entire theoretical foundation of this ontology is best understood as a multi
 *   **Provides:** The ultimate guarantee of **Logical Possibility**. Any concept or interaction defined at this layer is not merely "valid" but is a mathematically proven, self-consistent entity. This is the "physics" of our digital universe, where "Proof is Law."
 
 ### 5.2. LoA 1: The Cryptographic Anchor (The Anchor of Trust)
-*   **Theory:** Public Key Cryptography, Decentralized Identifiers (DIDs), Verifiable Credentials (VCs).
+*   **Theory:** Public Key Cryptography, W3C Decentralized Identifiers (DIDs), W3C Verifiable Credentials (VCs).
 *   **Hides:** The complex mathematics of cryptographic algorithms (e.g., elliptic curves, hash functions).
 *   **Provides:** **Verifiable Reality**. It offers a simple, binary guarantee to the layers above: a signature is either valid or it is not. This layer transforms abstract mathematical proofs into concrete, trustworthy digital facts.
 
@@ -412,15 +412,15 @@ This entire structure provides the blueprint for a new digital civilization's "H
 
 This ontology was not created in a vacuum. It stands on the shoulders of giants, representing the logical evolution of a 30-year quest for decentralized, trustworthy digital interaction. It synthesizes the cryptographic security of GPG, the decentralized ambitions of the Web of Trust, and the governance goals of Cyber Norms into a single, computable framework.
 
-### 8.1. From GPG/PGP to Decentralized Identifiers (DIDs)
+### 8.1. From GPG/PGP to W3C Decentralized Identifiers (DIDs)
 
 *   **The Foundation (GPG/PGP):** Provided the first widespread implementation of cryptographic identity, proving that a message was sent by a specific keyholder and was not tampered with.
-*   **The Evolution (DIDs):** Our use of DIDs inherits this core principle but evolves it. DIDs are more flexible, controller-centric, and platform-agnostic, allowing an agent to manage multiple identities for different contexts.
+*   **The Evolution (W3C DIDs):** Our use of DIDs inherits this core principle but evolves it. DIDs are more flexible, controller-centric, and platform-agnostic, allowing an agent to manage multiple identities for different contexts.
 
-### 8.2. From the Web of Trust to Verifiable Credentials (VCs)
+### 8.2. From the Web of Trust to W3C Verifiable Credentials (VCs)
 
 *   **The Ambition (Web of Trust):** The PGP Web of Trust was a brilliant attempt to decentralize identity verification through a network of social attestations ("I vouch that this key belongs to this person").
-*   **The Evolution (VCs):** The WoT proved difficult to scale and its attestations were too general. VCs are the realization of this ambition in a more granular and scalable way. Instead of just vouching for an identity, VCs allow authoritative issuers to make specific, structured, and verifiable claims about an agent's capabilities, attributes, or completed actions.
+*   **The Evolution (VCs):** The WoT proved difficult to scale and its attestations were too general. W3C VCs are the realization of this ambition in a more granular and scalable way. Instead of just vouching for an identity, VCs allow authoritative issuers to make specific, structured, and verifiable claims about an agent's capabilities, attributes, or completed actions.
 
 ### 8.3. From Cyber Norms to Computable Contracts and "Code is Law"
 
@@ -437,8 +437,8 @@ An agent *cannot* act on an invalid `Delegation`, not because it is programmed t
 
 | Predecessor | What it Solved | Its Limitation | How Our Ontology Evolves It |
 | :--- | :--- | :--- | :--- |
-| **GPG/PGP** | Cryptographic Authenticity | Rigid, singular identity | **DIDs** (Flexible, multi-faceted identity) |
-| **Web of Trust** | Decentralized Identity Vouching | Scalability, lack of granularity | **VCs** (Precise, authoritative, verifiable claims) |
+| **GPG/PGP** | Cryptographic Authenticity | Rigid, singular identity | **W3C DIDs** (Flexible, multi-faceted identity) |
+| **Web of Trust** | Decentralized Identity Vouching | Scalability, lack of granularity | **W3C VCs** (Precise, authoritative, verifiable claims) |
 | **Cyber Norms** | Social Governance & Etiquette | Unenforceable, implicit | **`Narrative` + SHACL** (Computable Contracts that implement "Code is Law") |
 
 This historical evolution culminates in our ontology, which finally provides the tools to build a truly decentralized, trustworthy, and self-governing digital society.

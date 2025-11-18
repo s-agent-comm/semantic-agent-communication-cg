@@ -1,6 +1,6 @@
 # W3C Semantic Agent Communication Community Group: Agent Semantic Communication Ontology
 
-This repository contains the draft of formal ontology for AI Agent interoperability, security, and communication, developed as part of the **W3C Agent Semantic Communication Community Group** work. It provides a machine-readable, logically consistent framework for defining agents, their capabilities, and the rules governing their interactions.
+This repository contains the draft of formal ontology for AI Agent interoperability, security, and communication, developed as part of the **W3C Agent Semantic Communication Community Group** work. It provides a machine-readable, logically consistent framework for defining agents, their capabilities, and the rules governing their interactions, built upon core W3C standards like Decentralized Identifiers (DIDs) and Verifiable Credentials (VCs).
 
 This CG defines the semantic meaning of agent interactions, not the transport, execution, or reasoning mechanisms used to process them.
 
