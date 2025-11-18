@@ -82,3 +82,11 @@ The behavior and design of this ontology are guided by several key specification
 ## Contributing
 
 We welcome contributions from the community! Please read our [`CONTRIBUTING.md`](./CONTRIBUTING.md) file to learn how you can get involved, whether it's by improving the ontology, adding examples, or enhancing the documentation.
+
+---
+
+## Developer Tools
+
+➡️ **[AgentIDL Repository](https://github.com/s-agent-comm/agent-idl)**
+
+This repository contains the Agent Interface Description Language (AgentIDL) and related tools for code generation and SDK development.
