@@ -1,223 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Semantic Agent Communication Community Group Charter</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/base">
-    <style>
-      body { max-width: 60em; margin: auto; }
-      li { margin-bottom: 9pt; }
-    </style>
-  </head>
 
-  <body>
-    <h1>[DRAFT] Semantic Agent Communication Community Group Charter</h1>
+<head>
+  <meta charset="utf-8" />
+  <title>Semantic Agent Communication Community Group Charter</title>
 
-    <p>This document is a draft Charter. Feedback should be submitted via the Group’s GitHub Issues page.</p>
+  <script src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+    var respecConfig = {
+      publishDate: "2025-11-20",
+      specStatus: "base",
+      shortName: "s-agent-comm-charter",
+      github: "s-agent-comm/agent-semantic-communication-ontology",
+      editors: [
+        {
+          name: "Tyson Chen",
+          company: "SlashLife AI",
+          w3cid: ""
+        }
+      ],
+      edDraftURI: "https://s-agent-comm.github.io/charter/",
+      lint: {
+        "no-headingless-sections": false
+      },
+      logos: []
+    };
+  </script>
+</head>
+
+<body>
+
+  <section id="abstract">
+    <p>
+      This Charter defines the mission, scope, deliverables, and operational structure
+      of the Semantic Agent Communication Community Group. The Group focuses on
+      semantic structures that enable autonomous software agents to interoperate
+      in a verifiable, accountable, and machine-interpretable manner. The scope
+      covers identity, delegation, capability description, intent modeling,
+      semantic logs, and conformance definitions necessary for interoperable
+      agent-to-agent communication.
+    </p>
+  </section>
+
+  <section id="status">
+    <p>
+      This document is a draft Charter under active development. Feedback is welcome
+      via the Group’s GitHub Issues. The Group operates under the
+      W3C Community and Business Group Process.
+    </p>
+  </section>
+
+  <section id="goals">
+    <h2>Goals</h2>
+    <p>
+      The Semantic Agent Communication Community Group aims to define the semantic
+      foundations required for interoperable agent-to-agent communication. Existing
+      approaches focus on transport protocols or model-specific behavior. This
+      Group focuses instead on the semantic layer: identity, delegation, capability
+      representation, intent modeling, execution traceability, and interoperable
+      interfaces across heterogeneous agent systems.
+    </p>
+  </section>
+
+  <section id="scope">
+    <h2>Scope of Work</h2>
+
+    <p>
+      The Community Group will define and maintain the formal ontology, semantic
+      structures, and supporting representations that enable autonomous software
+      agents to communicate in a verifiable and semantically consistent manner.
+      The scope includes the following areas:
+    </p>
 
     <ul>
-      <li>This Charter: https://www.w3.org/community/s-agent-comm/charter/</li>
-      <li>Previous Charter: None (initial charter)</li>
-      <li>Start Date: 2025-11-20</li>
-      <li>Last Modified: 2025-11-20</li>
+      <li><strong>Interaction Semantics</strong> —
+        definitions for Intent, Delegation, Capability, ExecutionRecord,
+        and related communicative constructs.
+      </li>
+
+      <li><strong>Identity and Verifiability Primitives</strong> —
+        use of Decentralized Identifiers (DIDs), Verifiable Credentials (VCs),
+        signatures, and attestation models that bind agent identity to trusted
+        execution environments.
+      </li>
+
+      <li><strong>Narrative Model</strong> —
+        an append-only semantic log structure that provides contextualized
+        traceability, accountability, and interpretable agent behavior records.
+      </li>
+
+      <li><strong>Semantic Ledger Model</strong> —
+        an implementation-independent logical model for ordered, immutable,
+        verifiable records. No blockchain or consensus mechanism is implied.
+      </li>
+
+      <li><strong>Conformance Definitions</strong> —
+        minimal normative requirements for interoperable interpretation of
+        communicative acts, delegation, identity bindings, and execution records.
+      </li>
+
+      <li><strong>Ontology Artifacts</strong> —
+        machine-readable RDF/OWL vocabularies, JSON-LD contexts, and SHACL shapes.
+      </li>
+
+      <li><strong>AgentIDL (WebIDL Extension)</strong> —
+        a formally defined interface description language generated from the
+        ontology, including a reference definition of type rules and the data
+        model for a compiler.
+      </li>
+
+      <li><strong>Stateful Knowledge Representation Bridge</strong> —
+        interfaces and serialization models for integrating version-controlled,
+        stateful knowledge systems (e.g., graph databases, Git-style knowledge
+        versioning). Stateless vector-based memory systems are out of scope.
+      </li>
+
+      <li><strong>Schema.org Extension Proposals</strong> —
+        extensions that introduce agent-related concepts for broader adoption.
+      </li>
     </ul>
+  </section>
 
-    <!-- ===================================================================== -->
-    <h2 id="goals">Goals</h2>
-    <p>
-      The Semantic Agent Communication Community Group seeks to define semantic models and communication structures
-      that enable autonomous software agents to interoperate in a verifiable, accountable, and machine-interpretable manner.
-      Whereas existing approaches focus primarily on transport protocols or model-level behaviors, this group concentrates on
-      the semantic layer required for identity, delegation, capability discovery, intent modeling, and execution traceability.
-    </p>
+  <section id="out-of-scope">
+    <h2>Out of Scope</h2>
 
-    <p>
-      The long-term objective is to provide a common semantic foundation that supports interoperable agent-to-agent
-      communication across heterogeneous system architectures, identity frameworks, and governance requirements.
-    </p>
-
-    <!-- ===================================================================== -->
-    <h2 id="scope-of-work">Scope of Work</h2>
-    <p>
-      The Community Group will define and maintain the formal ontology and semantic models necessary for AI Agent
-      interoperability, security, and communication. The scope includes the following:
-    </p>
+    <p>The following areas are explicitly out of scope:</p>
 
     <ul>
-      <li><strong>Interaction Semantics</strong>: Formal definitions for <em>Intent</em>, <em>Delegation</em>, <em>Capability</em> advertisement,
-        <em>ExecutionRecord</em>, and related <em>CommunicativeActs</em>.</li>
-
-      <li><strong>Identity and Verifiability Primitives</strong>:
-        Use of Decentralized Identifiers (DIDs), Verifiable Credentials (VCs), signatures, attestations,
-        and provenance structures needed to establish trust in agent actions. 
-        This includes the binding of DIDs to hardware roots of trust (e.g., ARM TrustZone) through attestation.</li>
-
-      <li><strong>Narrative Model</strong>:
-        Definition of an append-only, context-complete semantic log that provides traceability, accountability,
-        and explainability of agent behavior.</li>
-
-      <li><strong>Semantic Ledger Model</strong>:
-        A logical model for representing immutable, ordered, verifiable records. The CG defines the conceptual
-        structure without mandating implementation technologies (e.g., no blockchain requirement).</li>
-
-      <li><strong>Conformance Definitions</strong>:
-        Minimal normative requirements for interpreting <em>CommunicativeActs</em>, <em>Delegations</em>, and other
-        semantic components consistently across implementations.</li>
-
-      <li><strong>Machine-Readable Ontology Artifacts</strong>:
-        RDF/OWL vocabularies, JSON-LD contexts, and SHACL shapes capturing the concepts described above
-        in a formally verifiable manner.</li>
-
-      <li><strong>AgentIDL (WebIDL Extension)</strong>:
-        An interface description language generated from the core ontology to support strongly-typed,
-        semantically-aware code generation. 
-        The CG will define AgentIDL and produce a reference compiler implementation.</li>
-
-      <li><strong>Knowledge Representation Technology Bridge</strong>:
-        Specification of the AgentIDL interfaces and serialization rules needed to integrate
-        <em>stateful, version-controlled</em> knowledge representation systems (e.g., graph databases,
-        version-controlled knowledge stores).  
-        Stateless embedding/vector stores are out of scope.</li>
-
-      <li><strong>Schema.org Extension Submission</strong>:
-        Drafting proposed extensions to Schema.org incorporating agent semantics for broader
-        discoverability and interoperability.</li>
+      <li>Transport protocols (HTTP, TCP, WebSockets, QUIC, etc.)</li>
+      <li>Internal reasoning systems, LLM behavior, planning architectures</li>
+      <li>Execution backends (CPU, GPU, WASM, hardware targets)</li>
+      <li>Economic and payment systems</li>
+      <li>Blockchain or distributed consensus mechanisms</li>
+      <li>Vertical or domain-specific ontologies (medical, financial, legal, etc.)</li>
+      <li>Regulatory or legal frameworks</li>
+      <li>Executable agent runtimes, SDKs, or products</li>
+      <li>Conflict resolution mechanisms (CRDT, OT)</li>
     </ul>
+  </section>
 
-    <!-- ===================================================================== -->
-    <h3 id="out-of-scope">Out of Scope</h3>
-    <p>The following are explicitly out of scope for this Community Group:</p>
+  <section id="deliverables">
+    <h2>Deliverables</h2>
 
-    <ul>
-      <li><strong>Transport Protocols</strong> (HTTP, WebSockets, TCP, UDP, QUIC)</li>
-      <li><strong>Internal Agent Reasoning Models</strong> (LLMs, inference engines, planners, cognitive architectures)</li>
-      <li><strong>Execution Backends / Compute Targets</strong> (CPU, GPU, WASM, runtime specifics)</li>
-      <li><strong>Economic or Settlement Systems</strong></li>
-      <li><strong>Blockchain / Distributed Ledger Protocols</strong></li>
-      <li><strong>Domain-Specific Knowledge Models</strong></li>
-      <li><strong>Legal or Policy Interpretation</strong></li>
-      <li><strong>Executable Runtimes, SDKs, or Complete Agent Systems</strong></li>
-      <li><strong>Conflict Resolution Algorithms</strong> (CRDT, OT, etc.)</li>
-      <li><strong>Browser Applications and Short-Lived Client Interactions</strong></li>
-    </ul>
-
-    <!-- ===================================================================== -->
-    <h2 id="deliverables">Deliverables</h2>
-
-    <h3 id="specifications">Specifications</h3>
-    <ul>
-      <li><strong>AI Agent Semantic Communication Ontology v1.0</strong>
-        (Turtle and JSON-LD serialization)</li>
-      <li><strong>AgentIDL Specification and Reference Compiler</strong></li>
-      <li><strong>SHACL Shapes for Ontology Validation</strong></li>
-      <li><strong>Implementation and Governance Notes</strong></li>
-      <li><strong>Interoperability Best Practices for Agent Runtimes</strong></li>
-    </ul>
-
-    <h3 id="non-normative-reports">Non-Normative Community Group Reports</h3>
-    <ul>
-      <li>Use cases and requirements</li>
-      <li>White papers and guidance documents</li>
-      <li>Interoperability analysis and mappings</li>
-    </ul>
-
-    <h3 id="test-suites">Test Suites and Example Implementations</h3>
     <p>
-      The group MAY produce test suites or non-normative example implementations to support specifications.
-      These outputs will be governed by the repository LICENSE file.
+      All deliverables will be published as Community Group Reports under the
+      W3C Software and Document License. The Group may update deliverables iteratively,
+      subject to the Decision Process outlined in this Charter.
     </p>
 
-    <!-- ===================================================================== -->
-    <h2 id="roles">Roles and Participation</h2>
+    <section id="normative-deliverables">
+      <h3>Normative Specifications</h3>
 
-    <h3>Chairs</h3>
-    <p>
-      The Community Group will be led by Chair(s) selected by group participants.  
-      If participants from five distinct organizations call for an election, 
-      the CG will conduct a formal election in consultation with the W3C Community Development Lead.
-    </p>
-
-    <h3>Editors</h3>
-    <p>Editors are responsible for maintaining the active specifications and ontology deliverables.</p>
-
-    <h3>Contributors</h3>
-    <p>
-      Contributors may submit issues, comments, and pull requests.
-      Substantive contributions require agreement to the
-      <a href="https://www.w3.org/community/about/process/cla/">W3C Community Contributor License Agreement (CLA)</a>.
-    </p>
-
-    <h3>Implementers</h3>
-    <p>
-      Organizations or individuals developing implementations or testbeds 
-      based on the group’s deliverables may participate as Implementers.
-    </p>
-
-    <h3>Community Participants</h3>
-    <p>
-      All participants must follow the
-      <a href="https://www.w3.org/Consortium/cepc/">W3C Code of Ethics and Professional Conduct</a>.
-    </p>
-
-    <!-- ===================================================================== -->
-    <h2 id="liaisons">Dependencies or Liaisons</h2>
-
-    <ul>
-      <li>Credentials Community Group</li>
-      <li>Decentralized Identifier Working Group</li>
-      <li>Verifiable Credentials Working Group</li>
-      <li>Web of Things Working Group</li>
-      <li>AI governance and safety-related community efforts</li>
-      <li>External agent framework implementer communities</li>
-    </ul>
-
-    <!-- ===================================================================== -->
-    <h2 id="process">Community and Business Group Process</h2>
-
-    <p>
-      The Group operates in accordance with the
-      <a href="https://www.w3.org/community/about/process/">
-      W3C Community and Business Group Process</a>.
-      Any Charter content inconsistent with that Process is void.
-    </p>
-
-    <p>
-      Specifications and software outputs MUST use the
-      <a href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
-      W3C Software and Document License</a>.
-    </p>
-
-    <p>
-      All repositories MUST include:
       <ul>
-        <li><a href="https://github.com/w3c/licenses/blob/master/CG-CONTRIBUTING.md">CONTRIBUTING</a></li>
-        <li><a href="https://github.com/w3c/licenses/blob/master/CG-LICENSE.md">LICENSE</a></li>
+        <li>
+          <strong>AI Agent Semantic Communication Ontology v1.0</strong><br />
+          A modular ontology defining core concepts such as Agent, Intent, Delegation,
+          Capability, ExecutionRecord, and related interaction semantics. Published
+          in RDF/Turtle and JSON-LD formats with SHACL validation.
+        </li>
+
+        <li>
+          <strong>AgentIDL Specification</strong><br />
+          A formally defined interface description language derived from the ontology.
+          Includes type rules, serialization formats, and mappings to conventional
+          interface definition structures. May include a reference implementation
+          for the compiler.
+        </li>
+
+        <li>
+          <strong>SHACL Validation Suite</strong><br />
+          A comprehensive set of SHACL shapes covering all normative ontology classes
+          and properties. Ensures consistent semantics across implementations.
+        </li>
+
+        <li>
+          <strong>Conformance and Interpretation Requirements</strong><br />
+          Definitions of normative conformance classes for interoperable implementation
+          of communicative acts, delegation chains, execution records, and identity bindings.
+        </li>
+
+        <li>
+          <strong>Interoperability Best Practices</strong><br />
+          Guidance for integrating the ontology and AgentIDL across agent systems,
+          operating system layers, semantic logs, and identity infrastructures.
+        </li>
       </ul>
-    </p>
+    </section>
 
-    <!-- ===================================================================== -->
-    <h2 id="transparency">Transparency</h2>
+    <section id="non-normative-deliverables">
+      <h3>Non-Normative Deliverables</h3>
+
+      <ul>
+        <li>Use cases and requirements documents</li>
+        <li>Design notes, editor’s drafts, terminology and glossary documents</li>
+        <li>Semantic compatibility and mapping notes (e.g., to Schema.org or WebIDL)</li>
+        <li>Test examples, sample messages, and illustrative semantic logs</li>
+        <li>Community guidance, adoption notes, and overview papers</li>
+      </ul>
+    </section>
+  </section>
+
+  <section id="roles">
+    <h2>Roles and Responsibilities</h2>
+
     <p>
-      All technical work will be conducted in public GitHub repositories.
-      Meeting minutes and summaries will be posted publicly.
+      This section defines the roles required for the effective operation of the
+      Semantic Agent Communication Community Group. Individuals may hold multiple
+      roles. Role assignments may be proposed by the Chair and confirmed through
+      the Group’s Decision Process.
     </p>
 
-    <!-- ===================================================================== -->
-    <h2 id="decision">Decision Process</h2>
+    <section>
+      <h3>Chair</h3>
+      <p>
+        The Chair ensures that the Group operates in accordance with the
+        W3C Community Group Process. The Chair organizes meetings, prepares agendas,
+        evaluates consensus, and initiates Calls for Consensus (CfC) when needed.
+        The Chair may appoint Editors and Coordinators and may delegate operational
+        responsibilities.
+      </p>
+    </section>
+
+    <section>
+      <h3>Editors</h3>
+      <p>
+        Editors are responsible for maintaining the authoritative drafts of
+        normative and non-normative documents produced by the Group. Editors
+        implement the outcomes of the Decision Process and must ensure consistency
+        across revisions.
+      </p>
+
+      <ul>
+        <li><strong>Core Ontology Editor</strong> —
+          Maintains RDF/OWL vocabularies, JSON-LD contexts, and SHACL shapes that
+          represent the core semantic models.
+        </li>
+
+        <li><strong>AgentIDL Editor</strong> —
+          Maintains the AgentIDL specification, including type rules, abstract
+          syntax, and reference compiler definitions.
+        </li>
+
+        <li><strong>Conformance and Semantic Ledger Editor</strong> —
+          Maintains conformance classes, execution record semantics, and identity
+          binding models consistent with DID/VC ecosystems.
+        </li>
+      </ul>
+
+      <p>
+        Editors may incorporate editorial (non-substantive) changes without a
+        Call for Consensus. Substantive changes require consensus or a CfC.
+      </p>
+    </section>
+
+    <section>
+      <h3>Use Case & Requirements Coordinator</h3>
+      <p>
+        The Coordinator maintains the catalog of use cases and requirements, ensuring
+        traceability between use cases and normative concepts in the specifications.
+        The role does not define normative semantics.
+      </p>
+    </section>
+
+    <section>
+      <h3>Liaison Coordinator</h3>
+      <p>
+        The Liaison Coordinator manages communication with related W3C Groups,
+        Community Groups, and external technical communities. Responsibilities
+        include tracking cross-group alignment, preparing briefing notes, and
+        coordinating Schema.org extension proposals where appropriate.
+      </p>
+    </section>
+
+    <section>
+      <h3>Test Suite Maintainer</h3>
+      <p>
+        The Test Suite Maintainer develops and maintains SHACL validation suites
+        and example semantic messages that illustrate correct usage of the ontology.
+        This role ensures practical testability but does not define normative semantics.
+      </p>
+    </section>
+
+    <section>
+      <h3>Meeting Scribe</h3>
+      <p>
+        The Meeting Scribe records discussions, decisions, and action items and
+        publishes minutes through publicly accessible channels.
+      </p>
+    </section>
+
+    <section>
+      <h3>Contributors</h3>
+      <p>
+        Contributors participate in discussions, raise issues, and submit pull
+        requests. Contributors must comply with the W3C Code of Ethics and
+        Professional Conduct and follow repository contribution guidelines.
+      </p>
+    </section>
+
+    <section>
+      <h3>Implementers</h3>
+      <p>
+        Implementers are organizations or individuals who adopt the Group’s
+        deliverables in agent systems. Implementers provide interoperability
+        feedback, report inconsistencies, and contribute example data or
+        implementation notes. This role is non-governance but central to validating
+        the specifications.
+      </p>
+    </section>
+
+  </section>
+
+  <section id="process">
+    <h2>Community and Business Group Process</h2>
+
     <p>
-      The group will seek consensus.  
-      When consensus is unclear, the Chair(s) MAY issue a Call for Consensus (CfC).  
-      If consensus still cannot be reached, Committers MAY select a direction with substantial support.
-      Objections MAY be addressed through alternative forks or separate notes.
+      The Group operates under the
+      <a href="https://www.w3.org/community/about/process/">
+        W3C Community and Business Group Process
+      </a>.
+      Terms in this Charter that conflict with that Process are void.
     </p>
 
-    <!-- ===================================================================== -->
-    <h2 id="charter-change">Amendments to this Charter</h2>
     <p>
-      Amendments require a 30-day vote and support from at least two-thirds of votes cast.
-      Minor corrections MAY be performed through standard group decisions.
+      Participation requires agreement to the W3C
+      <a href="https://www.w3.org/Consortium/cepc/">
+        Code of Ethics and Professional Conduct
+      </a>.
+    </p>
+  </section>
+
+  <section id="contributions">
+    <h2>Contribution Mechanics</h2>
+
+    <p>
+      Substantive contributions to any normative deliverable may only be made
+      by participants who have agreed to the
+      <a href="https://www.w3.org/community/about/process/cla/">
+        W3C Community Contributor License Agreement (CLA)
+      </a>.
     </p>
 
-  </body>
+    <p>
+      All technical work is conducted in public GitHub repositories under the
+      <code>s-agent-comm</code> organization. Contributions may be made via
+      pull requests, issues, or comments.
+    </p>
+
+    <p>
+      All repositories must include the standard W3C
+      <a href="https://github.com/w3c/licenses/blob/master/CG-CONTRIBUTING.md">
+        CONTRIBUTING
+      </a>
+      and
+      <a href="https://github.com/w3c/licenses/blob/master/CG-LICENSE.md">
+        LICENSE
+      </a>
+      files.
+    </p>
+  </section>
+
+  <section id="transparency">
+    <h2>Transparency</h2>
+
+    <p>
+      All technical discussions, decisions, and documents must be publicly accessible.
+      Meeting minutes or summaries must be posted either through GitHub Issues or a
+      public mailing list.
+    </p>
+  </section>
+
+  <section id="decision-process">
+    <h2>Decision Process</h2>
+
+    <p>
+      The Group seeks to make decisions by consensus. After discussion and due
+      consideration of different views, the Chair will assess whether consensus
+      has been achieved.
+    </p>
+
+    <p>
+      When consensus is unclear, the Chair may issue a Call for Consensus (CfC)
+      allowing multi-day feedback. If substantial disagreement persists and a
+      decision is required for progress, Committers may select an alternative
+      that has substantial support. Individuals who disagree are encouraged to
+      maintain alternative proposals or forks for further evaluation.
+    </p>
+
+    <p>
+      Decisions reached during meetings must be recorded in GitHub Issues.
+      Any participant may object within seven days by providing clear technical
+      reasons. The Chair will facilitate resolution following the Group’s process.
+    </p>
+  </section>
+
+  <section id="chair-selection">
+    <h2>Chair Selection</h2>
+
+    <p>
+      The Chair is chosen by Group participants. Participants may call for an
+      election at any time if five participants, no two from the same organization,
+      request one. Elections follow the procedures outlined in the
+      W3C Community Group Process, including adherence to
+      <a href="https://www.rfc-editor.org/rfc/rfc2777">RFC 2777</a>
+      for tie-breaking if needed.
+    </p>
+  </section>
+
+  <section id="amendments">
+    <h2>Amendments to this Charter</h2>
+
+    <p>
+      The Group may propose revisions to this Charter using the Decision Process.
+      Adoption of an amended Charter requires a 30-day approval vote and at least
+      two-thirds support of the votes cast.
+    </p>
+
+    <p>
+      Minor corrections, such as deliverable dates or editorial adjustments,
+      may be made through the standard Group decision process without requiring
+      a full amendment vote.
+    </p>
+  </section>
+
+</body>
+
 </html>
