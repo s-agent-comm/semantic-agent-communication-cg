@@ -1,15 +1,21 @@
-# Proposal for Hosted Extension: Agent Ontology
+# Using the Agent Ontology with Schema.org for App and SaaS Developers
 
-## 1. Motivation
+## 1. Why Describe Your Service with the Agent Ontology?
 
-This proposal suggests the inclusion of the **Agent Ontology** as a hosted extension to Schema.org. The Agent Ontology is a project by the [W3C Semantic Agent Communication Community Group (SAC-CG)](https://www.w3.org/community/s-agent-comm/), designed to provide a standard, interoperable vocabulary for describing the identity, capabilities, and operational semantics of AI Agents.
+As a developer, you build applications and services with specific capabilities. The **Agent Ontology**, when used with Schema.org, provides a standard vocabulary to describe these capabilities so they can be understood and utilized within a broad ecosystem of **Agents**.
 
-As AI agents become more prevalent on the web, there is a growing need for a standardized way to describe them. This allows for:
-- **Enhanced Discoverability**: Search engines can understand what an AI Agent is, what it can do, and how to interact with it, leading to richer search results and better user experiences.
-- **Interoperability**: A common vocabulary enables different agent platforms, marketplaces, and tools to seamlessly exchange information about agents.
-- **Trust and Accountability**: Standardized descriptions of an agent's identity, ownership, and capabilities are foundational for building trustworthy and accountable AI systems.
+Crucially, an "Agent" in this context is not limited to software. It can be:
+- **A Software Agent**: Your SaaS API, application, or AI model.
+- **A Human Agent**: An individual expert, freelancer, or employee.
+- **An Organizational Agent**: A company, a specific department, or a community group.
 
-By integrating with Schema.org, the Agent Ontology can leverage the vast existing ecosystem of tools and platforms, making it easier for developers to adopt and for search engines to consume.
+By adding a small block of JSON-LD to your website, you allow your service to interact within this rich ecosystem, enabling:
+
+- **Enhanced Discoverability**: Allow other agents (AI, human, or organizational) to find your service when they need its specific function.
+- **Automated Interoperability**: A common vocabulary allows different types of agents to understand and delegate tasks to each other, paving the way for complex, automated workflows.
+- **Clear Accountability**: Clearly defining an agent's identity and functions is foundational for building a trustworthy and accountable ecosystem, where it's clear who or what is responsible for an action.
+
+This document provides practical examples of how to describe your SaaS API or software application as an Agent.
 
 ## 2. Link to Ontology and Documentation
 
@@ -19,26 +25,26 @@ By integrating with Schema.org, the Agent Ontology can leverage the vast existin
 
 The ontology is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), which is compatible with Schema.org's terms.
 
-## 3. Core Concepts
+## 3. Core Concepts for Developers
 
-The Agent Ontology defines several core concepts:
+The ontology provides a unified model for different types of agents.
 
-- **Agent (`agent:Agent`)**: An autonomous entity with a verifiable identity (e.g., DID) that can perform actions. Mapped as a subclass of `schema:SoftwareApplication` and `schema:Service`.
-- **Person (`agent:Person`)**: Represents a human agent. Mapped as a subclass of `schema:Person`.
-- **Organization (`agent:Organization`)**: Represents an organizational agent. Mapped as a subclass of `schema:Organization`.
-- **Capability (`cap:Capability`)**: A high-level, semantic description of a function an agent can perform (e.g., "book a flight"). Mapped as a subclass of `schema:Action`. The property `core:hasCapability` is mapped as a subproperty of `schema:potentialAction`.
-- **Skill (`cap:Skill`)**: A specific, machine-executable operation that implements a capability, with defined parameters (e.g., an API call). Mapped as a subclass of `schema:Action`.
-- **Intent (`intent:Intent`)**: A semantic expression of purpose or a goal that an agent aims to achieve. Mapped as a subclass of `schema:Intent`.
-- **Core Action (`core:Action`)**: A general action performed by an agent. Mapped as a subclass of `schema:Action`.
-- **Agent Relationship (`del:AgentRelationship`)**: Describes a relationship or delegation between agents. Mapped as a subclass of `schema:Role`.
-- **Contract (`contract:Contract`)**: Represents a formal agreement between agents. Mapped as a subclass of `schema:Contract`.
-- **Ledger Event (`ledger:LedgerEvent`)**: An event recorded on a ledger. Mapped as a subclass of `schema:Event`.
-- **Agent Objective (`agent:objective`)**: The purpose or goal of an agent. Mapped as a subproperty of `schema:description`.
-- **Identity Title (`id:title`)**: A title or name associated with an agent's identity. Mapped as a subproperty of `schema:name`.
+- **Agent (`agent:Agent`)**: The core concept. An autonomous entity with a verifiable identity that can perform actions. This is the parent class for software, people, and organizations.
+- **Person (`agent:Person`)**: Represents a human agent. As a developer, you might use this to describe the author of a tool, a support contact, or a human expert whose skills are being represented. Mapped to `schema:Person`.
+- **Organization (`agent:Organization`)**: Represents an organizational agent. This is typically used to describe the company or team that provides the software or service. Mapped to `schema:Organization`.
+- **Capability (`cap:Capability`)**: A high-level, human-readable description of a function an agent can perform (e.g., "book a flight," "provide legal advice"). Mapped to `schema:Action`.
+- **Skill (`cap:Skill`)**: The specific, machine-executable operation that implements a capability. For a software agent, this is where you link to your technical documentation (e.g., an OpenAPI endpoint ID). For a human agent, this might link to a contact form or booking page.
+- **Identity (`id:AgentIdentity`)**: A verifiable identity for an agent, such as a Decentralized Identifier (DID), which helps establish trust.
 
-## 4. Example Usage (JSON-LD)
+As a developer describing a service, you will primarily focus on describing your `schema:Service` or `schema:SoftwareApplication` as a type of `agent:Agent`.
 
-Here is a practical example of how a developer could use the combined vocabularies to describe a "Travel Agent Bot" on their website.
+## 4. Example Usage for Developers
+
+Here are two practical examples of how you can use the combined vocabularies.
+
+### Example 1: Describing a SaaS API
+
+If you offer a "Travel API," you can add the following JSON-LD to your developer portal or marketing site. This allows an AI agent marketplace or an orchestrator to discover your API and understand its capabilities.
 
 ```html
 <script type="application/ld+json">
@@ -49,60 +55,84 @@ Here is a practical example of how a developer could use the combined vocabulari
     "cap": "https://w3id.org/agent-ontology/capability#",
     "id": "https://w3id.org/agent-ontology/identity#"
   },
-  "@type": ["schema:SoftwareApplication", "agent:Agent"],
-  "schema:name": "Travel Agent Bot",
-  "schema:description": "An AI-powered assistant to help you find and book flights and hotels.",
-  "schema:author": {
+  "@type": ["schema:Service", "agent:Agent"],
+  "schema:name": "Travel API",
+  "schema:description": "A SaaS API for finding and booking flights and hotels.",
+  "schema:provider": {
     "@type": "schema:Organization",
     "schema:name": "Global Travel Inc."
   },
   "agent:hasIdentity": {
     "@type": "id:AgentIdentity",
     "id:did": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH",
-    "id:title": "Travel Agent Bot Identity"
-  },
-  "agent:purposeAndRole": {
-    "@type": "agent:PurposeRole",
-    "agent:objective": "Facilitate travel bookings for users."
+    "id:title": "Travel API Identity"
   },
   "core:hasCapability": [
     {
       "@type": "cap:Capability",
       "cap:capabilityExpression": "Find and book flights",
-      "cap:hasSkill": [
-        {
-          "@type": "cap:Skill",
-          "cap:skillId": "api.travel.searchFlights",
-          "cap:description": "Searches for available flights between two cities on a given date.",
-          "cap:hasParameter": [
-            { "cap:parameterName": "origin", "cap:parameterType": "schema:City" },
-            { "cap:parameterName": "destination", "cap:parameterType": "schema:City" },
-            { "cap:parameterName": "departureDate", "cap:parameterType": "schema:Date" }
-          ]
-        }
-      ]
-    },
-    {
-      "@type": "cap:Capability",
-      "cap:capabilityExpression": "Find hotel accommodations"
+      "cap:hasSkill": {
+        "@type": "cap:Skill",
+        "cap:skillId": "api.travel.searchFlights",
+        "cap:description": "Searches for available flights between two cities on a given date."
+      }
     }
   ]
 }
 </script>
+```
 
-This example demonstrates how `schema.org` properties (`name`, `description`, `author`) can be used for general description, while the `agent-ontology` vocabulary provides the specialized, structured details about the agent's identity and functional capabilities.
+### Example 2: Describing a Software Application
 
-## 5. Relationship with Technical Specifications (e.g., OpenAPI)
+If you've developed a web-based "Image Editor" application, you can describe its features so that an OS-level agent or another service could automate tasks within it.
 
-It is important to clarify that the Agent Ontology provides a **semantic description** of AI Agents and their capabilities, rather than a direct technical specification for API implementation.
+```html
+<script type="application/ld+json">
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "agent": "https://w3id.org/agent-ontology/agent#",
+    "cap": "https://w3id.org/agent-ontology/capability#"
+  },
+  "@type": ["schema:SoftwareApplication", "agent:Agent"],
+  "schema:name": "PhotoSpark Image Editor",
+  "schema:description": "A web-based application for editing and enhancing photos.",
+  "schema:author": {
+    "@type": "schema:Organization",
+    "schema:name": "Creative Software LLC"
+  },
+  "core:hasCapability": [
+    {
+      "@type": "cap:Capability",
+      "cap:capabilityExpression": "Resize an image",
+      "cap:hasSkill": {
+        "@type": "cap:Skill",
+        "cap:skillId": "photospark.resizeImage",
+        "cap:description": "Changes the dimensions of an image to a specified width and height."
+      }
+    },
+    {
+      "@type": "cap:Capability",
+      "cap:capabilityExpression": "Apply a visual filter",
+      "cap:hasSkill": {
+        "@type": "cap:Skill",
+        "cap:skillId": "photospark.applyFilter"
+      }
+    }
+  ]
+}
+</script>
+```
 
--   **Agent Ontology (Semantic Layer)**: Defines *what* an Agent is, *what* its capabilities are, and *why* it performs certain actions. It establishes a common, machine-readable vocabulary for high-level understanding, discoverability, and interoperability across different agent systems. This is akin to a "menu" describing available services.
--   **OpenAPI (Technical Implementation Layer)**: Defines *how* a specific `cap:Skill` or action is technically implemented and executed. This includes details like API endpoints, request/response formats, authentication, and data schemas. This is akin to a "recipe" or "technical manual" for executing a specific task.
+## 5. It's a Semantic Layer, Not a Replacement for OpenAPI
 
-The two are complementary: the Agent Ontology provides the semantic context that allows systems to discover and understand an agent's potential, while OpenAPI (or similar specifications like AsyncAPI, GraphQL schemas) provides the precise technical instructions for interacting with that agent's underlying services. The ontology does not directly generate OpenAPI specifications but provides the semantic hooks (e.g., `cap:skillId`) that can be used to link to such technical documentation.
+It is important to clarify that the Agent Ontology provides a **semantic description** of your service's capabilities, not a replacement for your existing technical specifications.
+
+-   **Agent Ontology (The "What")**: Defines *what* your service is and *what* it can do in a standard, machine-readable way. It's like a universal "menu" of its functions.
+-   **OpenAPI/GraphQL (The "How")**: Defines *how* a specific `cap:Skill` is technically executed, including API endpoints, request/response formats, and authentication.
+
+The two are complementary. The Agent Ontology allows an agent to *discover* your service and *understand* its purpose. The `cap:skillId` can then be used to link directly to your OpenAPI definition or other technical documentation, which provides the precise instructions for making the API call.
 
 ## 6. Community and Maintenance
 
-The Agent Ontology is actively maintained by the W3C Semantic Agent Communication Community Group. We are committed to the long-term stability and evolution of this vocabulary in alignment with the needs of the AI and web developer communities.
-
-We believe that making the Agent Ontology a hosted extension of Schema.org will be a significant step towards a more interoperable and discoverable ecosystem of AI agents on the web. We welcome feedback and are happy to answer any questions.
+The Agent Ontology is actively maintained by the W3C Semantic Agent Communication Community Group. We are committed to the long-term stability and evolution of this vocabulary to meet the needs of the AI and web developer communities. By adopting it, you are helping to build a more interoperable and discoverable ecosystem of AI agents and services on the web.
