@@ -1,68 +1,75 @@
-# Core Ontology Specification (Draft)
+# Semantic Agent Communication: Core Ontology
 
-**Version:** 0.1.0  
-**Status:** Draft
+**W3C Community Group Report**
+
+## Abstract
+
+This specification defines the Core Ontology for the Semantic Agent Communication standard. It provides the normative RDF/OWL vocabulary for Agents, Capabilities, Delegations, and the Unified Narrative model.
 
 ## 1. Introduction
 
-This document provides the formal specification for the Core module of the AI Agent Ontology. The Core ontology defines the foundational, high-level concepts that form the basis for all other modules in this project. It establishes the primary classes of entities and the fundamental relationships between them.
+The Core Ontology establishes the foundational classes and properties that enable interoperable agent communication. It focuses on **interaction semantics** rather than general knowledge representation.
 
-The namespace for the Core Ontology is `https://ns.slashlife.ai/agent/core#`. The recommended prefix is `core`.
+**Namespace:** `https://w3id.org/sac/core#`
+**Prefix:** `sac`
 
 ## 2. Core Classes
 
-This section details the primary classes defined in the Core Ontology.
-
 ### 2.1 Agent
-*   **URI:** `core:Agent`
-*   **Subclass Of:** `core:AgentEntity`
-*   **Definition:** An autonomous actor capable of perceiving, interpreting, or executing actions within a delegated semantic environment.
-*   **Key Properties:**
-    *   `core:hasIntent`: Associates an Agent with its intended objective or semantic purpose.
-    *   `core:hasCapability`: Associates an Agent with a Capability it is able to perform.
-    *   `core:executesAction`: Associates an Agent with an Action it performs.
+*   **URI:** `sac:Agent`
+*   **Definition:** An autonomous entity capable of perceiving, interpreting, and executing actions within a shared semantic environment.
+*   **Properties:**
+    *   `sac:identifier`: The W3C DID of the agent.
+    *   `sac:hasCapability`: Links to `sac:Capability`.
 
-### 2.2 Capability
-*   **URI:** `core:Capability`
-*   **Definition:** A high-level, declarative, and semantically rich description of an Agent's functional competence or operational capacity.
-*   **Description:** This class represents what an agent *can do* at a conceptual level. A `core:Capability` is further composed of one or more `cap:Skill`s (defined in the Capability Ontology), which represent the atomic, machine-executable functions. Capabilities are the units of authority that are granted in a Delegation.
+### 2.2 CommunicativeAct
+*   **URI:** `sac:CommunicativeAct`
+*   **Definition:** An atomic unit of interaction within a Narrative. All specific acts (Intent, Delegation, etc.) are subclasses of this.
+*   **Properties:**
+    *   `sac:actor`: The Agent performing the act.
+    *   `sac:timestamp`: When the act occurred.
+    *   `sac:signature`: Cryptographic proof of authorship.
 
-### 2.3 Delegation
-*   **URI:** `core:Delegation`
-*   **Definition:** A structured semantic relation where one Agent authorizes another to act within a defined scope.
-*   **Key Properties:**
-    *   `core:delegatedBy`: Indicates the Agent granting delegated authority.
-    *   `core:delegatesTo`: Indicates the Agent receiving delegated authority.
-    *   `core:delegationScope`: Specifies the scope of allowed capabilities within a Delegation relation.
+### 2.3 Intent
+*   **URI:** `sac:Intent`
+*   **Subclass Of:** `sac:CommunicativeAct`
+*   **Definition:** A declaration of a goal or desired outcome.
+*   **Properties:**
+    *   `sac:goalDescription`: Natural language or formal description of the goal.
 
-### 2.4 Action
-*   **URI:** `core:Action`
-*   **Definition:** A concrete execution event initiated by an Agent, producing observable or verifiable consequences.
-*   **Description:** An Action is a record of something that *happened*. It is the result of an Agent exercising a Capability.
-*   **Key Properties:**
-    *   `core:producesArtifact`: Specifies the Artifact produced by an Action.
-    *   `core:recordedIn`: Links an Action to its verifiable trace record (`core:TraceEvent`).
+### 2.4 Delegation
+*   **URI:** `sac:Delegation`
+*   **Subclass Of:** `sac:CommunicativeAct`
+*   **Definition:** A formal transfer of authority from one agent to another.
+*   **Properties:**
+    *   `sac:delegator`: The Agent granting authority.
+    *   `sac:delegatee`: The Agent receiving authority.
+    *   `sac:scope`: The `sac:Capability` or constraints being delegated.
+    *   `sac:parentDelegation`: Link to a previous delegation (for chaining).
 
-### 2.5 Other Core Classes
+### 2.5 ExecutionRecord
+*   **URI:** `sac:ExecutionRecord`
+*   **Subclass Of:** `sac:CommunicativeAct`
+*   **Definition:** A verifiable proof that an action was executed.
+*   **Properties:**
+    *   `sac:result`: The outcome (success/failure/artifact).
+    *   `sac:authorizedBy`: Link to the `sac:Delegation` that authorized this.
 
-*   **`core:AgentEntity`**: A general semantic entity participating in agent communication, delegation, or execution. It is the superclass for `core:Agent`.
-*   **`core:Intent`**: A semantic expression of purpose, objective, or expected action outcome.
-*   **`core:ExecutionContext`**: A contextual frame describing conditions, trust anchors, or constraints associated with an Agent action.
-*   **`core:Artifact`**: A produced output or result generated through agent execution.
-*   **`core:TraceEvent`**: A verifiable record linking an Agent, an Action, and contextual constraints.
+### 2.6 Narrative
+*   **URI:** `sac:Narrative`
+*   **Definition:** An ordered, append-only log of `CommunicativeAct`s.
+*   **Properties:**
+    *   `sac:hasEvent`: Links to the acts contained in the narrative.
 
 ## 3. Core Properties
 
-This section details the primary object properties that connect the core classes.
-
 | Property | Domain | Range | Description |
 | :--- | :--- | :--- | :--- |
-| `core:hasIntent` | `core:Agent` | `core:Intent` | Associates an Agent with its intended objective. |
-| `core:hasCapability` | `core:Agent` | `core:Capability` | Links an Agent to a Capability it can perform. |
-| `core:delegatedBy` | `core:Delegation` | `core:Agent` | The Agent granting authority. |
-| `core:delegatesTo` | `core:Delegation` | `core:Agent` | The Agent receiving authority. |
-| `core:delegationScope` | `core:Delegation` | `core:Capability` | The scope of capabilities allowed in a Delegation. |
-| `core:executesAction` | `core:Agent` | `core:Action` | Associates an Agent with an Action it performs. |
-| `core:producesArtifact` | `core:Action` | `core:Artifact` | The Artifact produced by an Action. |
-| `core:recordedIn` | `core:Action` | `core:TraceEvent` | Links an Action to its trace record. |
-| `core:contextOf` | `core:ExecutionContext` | `core:Action` | The context that applies to a specific Action. |
+| `sac:actor` | `sac:CommunicativeAct` | `sac:Agent` | The agent performing the act. |
+| `sac:delegator` | `sac:Delegation` | `sac:Agent` | The agent granting authority. |
+| `sac:delegatee` | `sac:Delegation` | `sac:Agent` | The agent receiving authority. |
+| `sac:authorizedBy` | `sac:ExecutionRecord` | `sac:Delegation` | The delegation that authorized the act. |
+
+## 4. Conformance
+
+Implementations MUST support the serialization of these classes in JSON-LD.

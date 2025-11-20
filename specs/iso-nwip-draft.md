@@ -65,7 +65,7 @@ This work is designed to complement and integrate with existing standards:
 The initial contribution for this work item will be based on the stable specifications from the W3C Semantic Agent Communication Community Group, including:
 *   The Semantic Agent Ontology (`.ttl` files)
 *   The Core Ontology Specification (`specs/core-ontology.md`)
-*   The Explainer and Use Case documents (`specs/Explainer.md`)
+*   The Primer and Use Case documents (`specs/primer.md`)
 *   A reference implementation report.
 
 ## 8. Proposed Project Leadership (Placeholder)
